@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        #banner {
+            width: 500px;
+            height: 205px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        #banner ul {
+            width: 1500px;
+            height: 205px;
+            position: absolute;
+            left: 0;
+            transition: 0.3s;
+        }
+        
+        #banner li {
+            float: left;
+        }
+        
+        #banner img {
+            width: 500px;
+            height: 205px;
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var oBanner = document.getElementById('banner');
+            var oUl = oBanner.getElementsByTagName('ul')[0];
+            var aLi = oUl.getElementsByTagName('li');
+            var num = 0;
+            var timer = null;
+
+            // 一打开，就自动轮播
+            setInterval(function() {
+                num++;
+                if (num >= aLi.length) {
+                    num = 0
+                }
+                oUl.style.left = -num * 500 + 'px';
+            }, 2000);
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="banner">
+        <ul>
+            <li><img src="img/1.jpg"></li>
+            <li><img src="img/2.jpg"></li>
+            <li><img src="img/3.jpg"></li>
+        </ul>
+    </div>
+</body>
+
+</html>

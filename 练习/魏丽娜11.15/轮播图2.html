@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #box {
+            width: 500px;
+            height: 205px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        #box ul {
+            width: 1500px;
+            height: 205px;
+            position: absolute;
+        }
+        
+        #box li {
+            float: left;
+        }
+        
+        #box img {
+            width: 500px;
+            height: 205px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='box'>
+
+        <ul>
+            <li><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        var oBox = document.getElementById('box');
+        var oUl = oBox.getElementsByTagName('ul')[0];
+        var aLi = oBox.getElementsByTagName('li');
+        var num = 0;
+        var timer = null;
+        setInterval(function() {
+            num++;
+            if (num >= aLi.length) {
+                num = 0;
+            }
+            oUl.style.left = -num * 500 + 'px';
+        }, 1000)
+    </script>
+</body>
+
+</html>

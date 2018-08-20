@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //封装一个函数 提取地址参数
+        //;如 ：returnValue(url,”cityId”)则返回28
+        function text(arr, val) {
+            arr = arr.split('?')[1];
+            var a = arr.split('&');
+            for (var i = 0; i < a.length; i++) {
+                var b = a[i].split('=');
+                if (b[0] === val) {
+                    return b[1]
+                }
+            }
+        }
+        var url = 'http://localhost/baidawu/html/hotel.html?cityId=28&date_in=2016-05-10&date_out = 2016 - 05 - 25 & name = 如家连锁 '
+        console.log(text(url, 'cityId'))
+    </script>
+</body>
+
+</html>

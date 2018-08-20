@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [6, 2, 5, 7];
+        //var val = arr[0] 此步骤是给arr[0]了一个仓库，
+        //这样就不会改变arr[0]的值
+        //要是直接用arr[0],就改变了arr[0]的值，所以需要定义个index来接收i
+        var index = 0;
+        for (i = 0; i < arr.length; i++) {
+            if (arr[0] > arr[i]) {
+                arr[0] = arr[i]
+                index = i;
+            }
+        }
+        console.log(arr[0], index);
+
+
+
+
+        var arr = [6, 2, 5, 7];
+        var val = arr[0];
+        var index = 0;
+
+        function text(arrs) {
+            for (var i = 0; i < arrs.length; i++) {
+                if (val > arrs[i]) {
+                    val = arrs[i];
+
+                }
+            }
+        }
+        text(arr)
+    </script>
+</body>
+
+</html>

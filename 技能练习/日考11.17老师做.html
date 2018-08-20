@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 2px solid #ccc;
+            padding: 20px;
+            min-height: 30px;
+        }
+        
+        #box span {
+            margin-left: 20px;
+        }
+        
+        #list {
+            padding: 20px;
+        }
+        
+        #list label {
+            padding: 3px 5px;
+            margin-left: 20px;
+        }
+        
+        #list label.active {
+            background: blue;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <!-- <span>人民广场地区<a href="javascript:;">X</a></span>
+        <span>人民广场地区<a href="javascript:;">X</a></span> -->
+    </div>
+    <div id="list">
+        <label><input type="checkbox" />海淀</label>
+        <label><input type="checkbox" />中关村</label>
+        <label><input type="checkbox" />八维</label>
+        <label><input type="checkbox" />网站工程</label>
+        <label><input type="checkbox" />八维5号楼</label>
+        <label><input type="checkbox" />李思垚</label>
+    </div>
+
+    <script>
+        var oBox = document.getElementById('box');
+        var oList = document.getElementById('list');
+        var aLabel = oList.children;
+
+        for (var i = 0; i < aLabel.length; i++) {
+            aLabel[i].setAttribute('index', i); // 添加自定义属性
+
+            aLabel[i].onclick = function() {
+                // 如果有class，则不向下执行
+                if (this.className) {
+                    return false;
+                }
+
+                var txt = this.innerText;
+                // 创建span
+                var oSpan = document.createElement('span');
+                oSpan.innerHTML = txt;
+
+                // 创建a
+                var oA = document.createElement('a');
+                oA.setAttribute('index', this.getAttribute('index'));
+                oA.href = 'javascript:;';
+                oA.innerHTML = 'X';
+                oA.onclick = function() {
+                    var i = this.getAttribute('index');
+                    oBox.removeChild(this.parentNode);
+                    aLabel[i].className = '';
+                    aLabel[i].firstChild.checked = false;
+                }
+
+                oSpan.appendChild(oA);
+
+                // span添加到box中
+                oBox.appendChild(oSpan);
+
+                // 给当前label添加样式
+                this.className = 'active';
+                this.firstChild.checked = true;
+
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

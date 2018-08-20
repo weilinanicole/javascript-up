@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //补全函数， 实现将数组idArr中所有的一位数前面加0
+        //var idArr = [1, 15, 6, 9, 18, 25, 36, 3]
+        //function changeIdArr() {}
+        //var newIdArr = changeIdArr();
+        //console.log(newIdArr);
+        //["01", 15, "06", "09", 18, 25, 36, "03"]
+
+        function arr(arr) {
+            var zero = '0';
+            news = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] < 10) {
+                    news.push(zero + arr[i]);
+                } else {
+                    news.push(arr[i]);
+                }
+            }
+            return news;
+        }
+        var idArr = [1, 15, 6, 9, 18, 25, 36, 3];
+        console.log(arr(idArr));
+    </script>
+</body>
+
+</html>

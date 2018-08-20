@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul {
+        text-align: center;
+        margin: 50px auto;
+        padding-top: 50px;
+    }
+    
+    ul li {
+        display: inline-block;
+        color: #fff;
+        font-size: 40px;
+        line-height: 80px;
+        text-align: center;
+        font-weight: 600;
+    }
+    
+    ul li.red {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #f00;
+        border: 1px solid rgba(255, 10, 0, .5);
+    }
+    
+    ul li.blue {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: blue;
+        border: 1px solid rgba(0, 10, 255, .5);
+    }
+    
+    div {
+        text-align: center;
+    }
+    
+    button {
+        outline: 0
+    }
+</style>
+
+<body>
+    <ul>
+        <li class='red'></li>
+        <li class='red'></li>
+        <li class='red'></li>
+        <li class='red'></li>
+        <li class='red'></li>
+        <li class='blue'></li>
+        <li class='blue'></li>
+    </ul>
+    <div>
+        <button>随机一注</button>
+        <button>清空</button>
+    </div>
+    <script>
+        var ul = document.getElementsByTagName('ul')[0];
+        var red = ul.getElementsByClassName('red');
+        var blue = ul.getElementsByClassName('blue');
+        var btn = document.getElementsByTagName('button')
+
+        function sj(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        function num(min, max, len) {
+            var num1 = [];
+            for (var i = 0; i < len;) {
+                var n = sj(min, max)
+                if (num1.indexOf(n) == -1) {
+                    if (n < 10) {
+                        n = '0' + n;
+                    } else {
+                        n = '' + n
+                    }
+                    num1.push(n);
+                    i++;
+                }
+            }
+
+            return num1
+        }
+        //btn[1].setAttribute('cmy', 1)给一个属性添加自定义属性可见的
+        //btn[1].index='d';给一个元素添加自定义属性，不可见但是可用
+        var lzp = true;
+        btn[0].onclick = function() {
+            if (lzp) {
+                lzp = false;
+                var cc = setInterval(function() {
+                    var b = num(1, 16, 2)
+                    for (var i = 0; i < 2; i++) {
+                        blue[i].innerHTML = b[i];
+                    }
+                    var r = num(1, 33, 5)
+                    for (var i = 0; i < 5; i++) {
+                        red[i].innerHTML = r[i];
+                    }
+                }, 100)
+                setTimeout(function() {
+                    clearInterval(cc)
+                    lzp = true;
+                }, 1000)
+
+            }
+        }
+        btn[1].onclick = function() {
+            for (var i = 0; i < 2; i++) {
+                blue[i].innerHTML = '';
+            }
+            for (var i = 0; i < 5; i++) {
+                red[i].innerHTML = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

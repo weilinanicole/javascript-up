@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var oUl = document.getElementById('list');
+
+            var first = oUl.children[0]; // 第一条
+            var aBtn = first.getElementsByTagName('button'); // 按钮
+            var oB = first.getElementsByTagName('b')[0]; // 件数
+            var count = oB.innerHTML; // 件数值
+            var oEm = first.getElementsByTagName('em')[0]; // 单价
+            var num = oEm.innerHTML; // 单价值
+            var oStrong = first.getElementsByTagName('strong')[0]; // 小计
+
+            // 减
+            aBtn[0].onclick = function() {
+                count--;
+                if (count < 0) {
+                    count = 0;
+                    return;
+                }
+                oStrong.innerHTML = count * num;
+                oB.innerHTML = count;
+            };
+
+            // 加
+            aBtn[1].onclick = function() {
+                count++;
+                oStrong.innerHTML = count * num;
+                oB.innerHTML = count;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="list">
+        <li>
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>12.5</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+        <li>
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>10</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+        <li>
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>16.5</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+        <li>
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>9.5</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+    </ul>
+</body>
+
+</html>

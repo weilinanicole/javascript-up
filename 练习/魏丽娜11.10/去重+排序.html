@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //写一段程序将数组中重复的值去掉，之后进行升序排列。
+        var arr = [];
+        var nums = [1, 8, 9, 8, 6, 5, 3, 1, 2, 7, 5];
+        for (var i = 0; i < nums.length; i++) {
+            if (nums.indexOf(nums[i]) === nums.lastIndexOf(nums[i])) {
+                arr.push(nums[i])
+            }
+        }
+        var arrs = arr.sort(function(a, b) {
+            return a - b;
+        })
+        console.log(arrs)
+    </script>
+
+</body>
+
+</html>

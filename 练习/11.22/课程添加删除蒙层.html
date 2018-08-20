@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid #ccc;
+        }
+        
+        th {
+            border: 1px solid #ccc;
+            padding: 0 10px;
+        }
+        
+        #cont {
+            text-align: center;
+        }
+        
+        #mark {
+            background: rgba(0, 0, 0, 0.3);
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        
+        #box {
+            position: absolute;
+            width: 300px;
+            height: 150px;
+            background: #fff;
+            text-align: center;
+        }
+        
+        #box input {
+            margin: 10px 0;
+        }
+        
+        .active {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            color: #f50;
+            text-decoration: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            var W = document.documentElement.clientWidth;
+            var H = document.documentElement.clientHeight;
+            btn.onclick = function() {
+                //蒙层
+                var mark = document.createElement('div');
+                mark.id = 'mark';
+                mark.style.width = W + 'px';
+                mark.style.height = H + 'px';
+                document.body.appendChild(mark);
+                //蒙层内容
+                var box = document.createElement('div');
+                box.id = 'box';
+                box.innerHTML = `课程名称：<br><input type="text"> <br>所属学院:<br>
+                <input type="text"><br><button>添加</button>`;
+                box.style.left = (W - 300) / 2 + 'px';
+                box.style.top = (H - 150) / 2 + 'px';
+                document.body.appendChild(box);
+                //创建删除按钮
+                var a = document.createElement('a');
+                a.href = 'javascript:;';
+                a.className = 'active';
+                a.innerHTML = 'x';
+                box.appendChild(a);
+                a.onclick = function() {
+                        document.body.removeChild(mark);
+                        document.body.removeChild(box);
+                    }
+                    //创建内容
+                var btnn = box.getElementsByTagName('button')[0];
+                var aInput = box.getElementsByTagName('input');
+                btnn.onclick = function() {
+                    if (!aInput[0].value || !aInput[1]) {
+                        return false;
+                    }
+                    var oTr = document.createElement('tr');
+                    oTr.innerHTML = `<td>${aInput[0].value}</td><td>${aInput[1].value}</td><td><a href='javascript:;'>删除</a></td>`;
+                    var tBody = document.getElementById('tbody');
+                    tBody.appendChild(oTr);
+                    document.body.removeChild(mark);
+                    document.body.removeChild(box);
+                    //删除按钮
+                    var del = oTr.getElementsByTagName('a')[0];
+                    console.log(del);
+                    del.onclick = function() {
+                        var parent = this.parentNode.parentNode;
+                        tBody.removeChild(oTr);
+                    }
+                }
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="添加课程" id='btn'>
+    <table>
+        <thead>
+            <tr>
+                <!--<th>课程名称</th>
+                <th>所属学院</th>
+                <th>操作</th>-->
+            </tr>
+        </thead>
+        <tbody id='tbody'>
+            <!--<tr id='cont'>
+                    <td>css</td>
+                    <td>网站工程</td>
+                    <td><a href="#">删除</a></td>
+            </tr>-->
+        </tbody>
+    </table>
+    <!--<div id='mark'></div>
+    <div id='box'>
+        课程名称：<br><input type="text"> <br>所属学院<br>
+        <input type="text"><br><button>添加</button>
+    </div>-->
+
+</body>
+
+</html>

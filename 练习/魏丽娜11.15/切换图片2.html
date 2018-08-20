@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box div {
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-size: 30px;
+            border: 2px solid #ccc;
+            display: none;
+        }
+        
+        .now {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='box'>
+        <input type='button' value='人生' class='now'>
+        <input type='button' value='美食'>
+        <input type='button' value='旅游'>
+        <div style=display:block>人生</div>
+        <div>美食</div>
+        <div>旅游</div>
+    </div>
+    <script>
+        var oBox = document.getElementById('box');
+        var aInput = document.getElementsByTagName('input');
+        var aDiv = document.getElementsByTagName('div');
+
+        for (var i = 0; i < aInput.length; i++) {
+            aInput[i].index = i;
+            aInput[i].onclick = function() {
+                for (var i = 0; i < aInput.length; i++) {
+                    aInput[i].className = '';
+                    aDiv[i].style.display = 'none';
+                }
+                this.className = 'now';
+                aDiv[this.index].style.display = 'block'
+            }
+        }
+    </script>
+</body>
+
+</html>

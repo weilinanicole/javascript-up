@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function text(arr1) {
+            var arrs = arr1.split('-')
+            for (var i = 1; i < arrs.length; i++) {
+                // var a = arrs[i];
+                var n = arrs[i].replace(arrs[i][0], arrs[i][0].toUpperCase());
+                arrs[i] = n;
+            }
+            return arrs.join('');
+        }
+        var arr = 'border-left-color';
+        console.log(text(arr))
+    </script>
+</body>
+
+</html>

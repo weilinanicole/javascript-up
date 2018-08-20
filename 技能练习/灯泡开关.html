@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <button id='btn'>隐藏</button>
+    <img src="11.11/1.jpg" id='img'>
+    <script>
+    var oBtn=document.getElementById('btn');
+    var oImg=document.getElementById('img');
+    oImg.style.heigth='200px';
+    oImg.style.width='200px';
+    oBtn.style.display='block';
+    oBtn.onclick=function(){
+        if(oBtn.innerHTML==='隐藏'){
+            oImg.style.display='none';
+            oBtn.innerHTML='显示';
+        }else{
+            oImg.style.display='block';
+            oBtn.innerHTML='隐藏';
+        }
+    }
+    </script>
+</body>
+</html>

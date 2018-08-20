@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #list {
+            margin: 20px auto;
+            width: 600px;
+            height: 100px;
+        }
+        
+        #list li {
+            float: left;
+        }
+        
+        #list img {
+            width: 200px;
+            height: 100px;
+            display: block;
+        }
+        
+        #mark {
+            background: rgba(0, 0, 0, 0.3);
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        
+        #cont {
+            position: absolute;
+        }
+        
+        .now {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 10px;
+            text-decoration: none;
+            color: #f00;
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id='list'>
+        <li><img src="img/img1.jpg" data-width="300" data-height='345'></li>
+        <li><img src="img/img2.jpg" data-width="250" data-height='206'></li>
+        <li><img src="img/img3.jpg" data-width="180" data-height='150'></li>
+        <li><img src="img/img6.jpg" data-width="640" data-height='352'></li>
+        <li><img src="img/img12.jpg" data-width="259" data-height="388"></li>
+        <li><img src="img/img14.jpg " data-width="550" data-height="544"></li>
+    </ul>
+    <!--<div id='mark'>
+        
+    </div>-->
+    <!--<div id='cont'>
+        <img src="img/img1.jpg " alt=" ">
+        <a href=" ">x</a>
+    </div>-->
+    <script>
+        var oUl = document.getElementById('list');
+        var aLi = oUl.getElementsByTagName('li');
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].onclick = function() {
+                //创建蒙层
+                var mark = document.createElement('div');
+                mark.id = 'mark';
+                var W = document.documentElement.clientWidth;
+                var H = document.documentElement.clientHeight;
+                var imgw = this.children[0].getAttribute('data-width');
+                var imgh = this.children[0].getAttribute('data-height');
+                console.log(imgw, imgh);
+                mark.style.width = W + 'px';
+                mark.style.height = H + 'px';
+                document.body.appendChild(mark);
+                //创建蒙层上的图片
+                var cont = document.createElement('div');
+                cont.id = 'cont';
+                cont.style.width = imgw + 'px';
+                cont.style.height = imgh + 'px';
+                cont.style.left = (W - imgw) / 2 + 'px';
+                cont.style.top = (H - imgh) / 2 + 'px';
+                var img = document.createElement('img');
+                img.src = this.children[0].getAttribute('src');
+                cont.appendChild(img);
+                //蒙层上的按钮
+                var btn = document.createElement('a');
+                btn.href = 'javascript:;';
+                btn.className = 'now';
+                document.body.appendChild(cont);
+                btn.innerHTML = 'x';
+                cont.appendChild(btn);
+                btn.onclick = function() {
+                    document.body.removeChild(cont);
+                    document.body.removeChild(mark);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

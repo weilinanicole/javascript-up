@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //补全函数，实现统计数组中某个字符出现了多少次
+        //function getCount(arr,val){         }*/ 
+        //如：getCount(["a","c","e","a","d","c"],"c")// 返回2
+        //如：getCount(["a","c","e","a","d","c"],"b")// 返回0
+        function getCount(arr, val) {
+            var num = 0;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] === val) {
+                    num++;
+                }
+            }
+            return num;
+        }
+        var arrs = ["a", "c", "e", "a", "d", "c"];
+        console.log(getCount(arrs, "c"))
+    </script>
+</body>
+
+</html>

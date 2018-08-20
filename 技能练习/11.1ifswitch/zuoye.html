@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //作业1 if
+        // var num = prompt('请输入商品数量');
+        // if (num < 5) {
+        //     console.log(num * 8);
+        // } else if (num > 5 && num < 10) {
+        //     console.log(num * 8 * 0.8)
+        // } else {
+        //     console.log(num * 8 * 0.5)
+        // }
+        //作业1 switch
+        // var num = prompt('请输入商品数量');
+        // switch (true) {
+        //     case (num < 5):
+        //         alert(num * 8);
+        //         break;
+        //     case (num > 5 && num < 10):
+        //         alert(num * 8 * 0.8);
+        //         break;
+        //     default:
+        //         alert(num * 8 * 0.5);
+        // }
+        //作业2
+        // var num = prompt('请输入一个数');
+        // switch (true) {
+        //     case (num < 40):
+        //         alert('很差');
+        //         break;
+        //     case (num > 40 && num < 60):
+        //         alert('较差');
+        //         break;
+        //     case (num == 60):
+        //         alert('及格');
+        //         break;
+        //     case (num > 60 && num < 80):
+        //         alert('一般');
+        //         break;
+        //     case (num < 90 && num > 80):
+        //         alert('较好');
+        //         break;
+        //     case (num < 100 && num > 90):
+        //         alert('优秀');
+        //         break;
+        //     case (num == 100):
+        //         alert('满分');
+        //         break;
+        // }
+        //密码
+        // var pass = prompt('请输入密码');
+        // if (pass.length != 6) {
+        //     alert('请输入6位数字密码');
+        // } else {
+        //     if (isNaN(pass)) {
+        //         alert('密码必须是6位数字');
+        //     } else {
+        //         alert('密码设置正确,您的密码是' + pass)
+        //     }
+        // }
+        //第三单元1
+        // var scor = prompt('用户输入成绩');
+        // if (isNaN(scor)) {
+        //     alert('成绩必须为数字')
+        // } else {
+        //     if (scor < 0 || scor > 100) {
+        //         alert('成绩输入有误');
+        //     } else {
+        //         switch (true) {
+        //             case (scor > 0 && scor < 59):
+        //                 alert('不及格');
+        //                 break;
+        //             case (scor >= 60 && scor < 69):
+        //                 alert('及格');
+        //                 break;
+        //             case (scor >= 70 && scor < 79):
+        //                 alert('一般');
+        //                 break;
+        //             case (scor >= 80 && scor < 89):
+        //                 alert('良');
+        //                 break;
+        //             case (scor >= 90 && scor <= 99):
+        //                 alert('优');
+        //                 break;
+        //             case (scor == 100):
+        //                 alert('智障');
+        //                 break;
+        //         }
+        //     }
+        // }
+        //三单元2
+        // var brower = "ie",property = "transform",fullProperty = "";
+        // 对brower做出如下判断，根据不同的浏览器添加不同的前缀，添加后放到fullProperty中如：
+        // brower是ie,则给property添加-ms-的前缀，即fullProperty的值为-ms-transform;
+        // brower是chrome,则给property添加-webkit-的前缀
+        // brower是firefox,则给property添加-moz-的前缀
+        // brower是opear,则给property添加-o-的前缀
+        // 如果都不是，则告诉用户：“您的浏览器支持property的值”
+        // var brower = prompt(''),
+        //     property = "transform",
+        //     fullProperty = '';
+        // if (brower == 'ie') {
+        //     fullProperty = '-ms - ' + property;
+        //     alert(fullProperty);
+        // } else if (brower == 'chrom') {
+        //     fullProperty = '-webkit-' + property;
+        //     alert(fullProperty);
+        // } else if (brower == 'firefox') {
+        //     fullProperty = '-moz-' + property;
+        //     alert(fullProperty);
+        // } else if (brower == 'opear') {
+        //     fullProperty = '-o-' + property;
+        //     alert(fullProperty);
+        // } else {
+        //     alert('您的浏览器支持property的值');
+        // }
+        // 三单元3
+        //弹出输入框，要求用户输入会员级别，且根据级别做出判断：
+        // 如果是普通会员，提示用户您享受的折扣是9.5折
+        // 如果是铁牌会员，提示用户您享受的折扣是9折
+        // 如果是铜牌会员，提示用户您享受的折扣是8.5折
+        // 如果是银牌会员，提示用户您享受的折扣是8折
+        // 如果是金牌会员，提示用户您享受的折扣是7.5折
+        // 如果是钻石会员，提示用户您享受的折扣是7折
+        // 如果以上都不是，提示用户您还没有注册，请先注册哦！
+        // var vip = prompt('请输入用户级别');
+        // switch (vip) {
+        //     case (vip == '普通会员'):
+        //         alert('用户您享受的折扣是9.5折');
+        //         break;
+        //     case (vip = '铁牌会员'):
+        //         alert('用户您享受的折扣是9折');
+        //         break;
+        //     case (vip = '铜牌会员'):
+        //         alert('用户您享受的折扣是8.5折');
+        //         break;
+        //     case (vip = '银牌会员'):
+        //         alert('用户您享受的折扣是8折');
+        //         break;
+        //     case (vip = '金牌会员'):
+        //         alert('用户您享受的折扣是7.5折');
+        //         break;
+        //     case (vip = '钻石会员'):
+        //         alert('用户您享受的折扣是7折');
+        //         break;
+        //     default:
+        //         alert('用户您还没有注册，请先注册哦！');
+        // }
+        // var id = "1601AJS"，
+        // id的值也有可能是 "150FEB", 也有可能是 "FEB1509", 也有可能是 "1509FEB"
+        // 等。
+        // 针对id进行如下判断：
+        // 如果长度不足7位， 弹出警告对话框提示用户“ 班级名称输入错误”
+        // 如果id的前4位不是数字， 弹出警告对话框提示用户“ 班级名称输入错误”
+        // 否则弹出警告对话框提示用户“ XXXX” 届。
+        var id = prompt('');
+        if (id.length != 7) {
+            alert('班级名称输入错误');
+        } else if (isNaN(id).length = 4) {
+            alert('错误');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value=" " id='text'>
+    <input type="button" value='留言' id='btn'>
+    <ul id='ul1'></ul>
+    <script>
+        var oText = document.getElementById('text');
+        var oBtn = document.getElementById('btn');
+        var oUl = document.getElementById('ul1');
+        //console.log(oUl)
+        oBtn.onclick = function() {
+            var txt = oText.value.trim()
+            if (!txt) {
+                return;
+            }
+            var oLi = document.createElement('li');
+            oLi.innerHTML = txt;
+            var aA = document.createElement('a');
+            aA.innerHTML = '删除';
+            aA.href = 'javascript:;'
+            oLi.appendChild(aA);
+            aA.onclick = function() {
+                    var lis = this.parentNode;
+                    lis.parentNode.removeChild(lis);
+                }
+                //oUl.appendChild(oLi);将li添加到ul中;
+                //插入的内容在旧内容之前
+                //oUl.insertBefore(oLi, oUl.children[0])
+                //兼容低版本浏览器，如果第二个参数不存在
+            if (oUl.children[0]) {
+                oUl.insertBefore(oLi, oUl.children[0])
+            } else {
+                oUl.appendChild(oLi);
+            }
+            oText.value = '';
+            var len = oUl.children;
+            if (len.length > 5) {
+                oUl.removeChild(len[len.length - 1])
+            }
+        }
+    </script>
+</body>
+
+</html>

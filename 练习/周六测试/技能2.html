@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // var str='abc' 翻转字符串.结果是： "c b a"
+        var str = 'abc';
+
+        // 方法一：
+        // var s = ''; // 仓库
+        // // 字符串反转
+        // for (var i = str.length - 1; i >= 0; i--) {
+        //     s += str[i];
+        // }
+        // var arr = s.split(''); // 字符串转换为数组
+        // s = arr.join(' '); // 数字转换为字符串
+        // console.log(s);
+
+
+        // 方法二
+        var str = 'abc';
+        str = str.split('').reverse().join(' ');
+        console.log(str);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

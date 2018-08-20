@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script>
+    </script>
+</head>
+<script>
+    window.onload = function() {
+        //查看类名是否有
+        function hasclass(obj, cl) {
+            var cln = obj.className.split(' ');
+            for (var i = 0; i < cln.length; i++) {
+                if (cln[i] == cl) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        //添加一个类名
+        function add(obj, cl) {
+            if (!obj.className) {
+                obj.className = cl;
+            } else if (hasclass(obj, cl) == -1) {
+                obj.className += ' ' + cl;
+            }
+        }
+        //删除一个类名
+        function removeclass(obj, cl) {
+            if (hasclass(obj, cl) != -1) {
+                var arr = obj.className.split(' ');
+                arr.splice(hasclass(obj, cl), 1);
+                var arr1 = arr.join(' ');
+                obj.className = arr1;
+            }
+        }
+        var input = document.getElementsByTagName('input')
+        var li = document.getElementsByTagName('li');
+        var cmy = true;
+        for (var k = 0; k < li.length; k += 2) {
+            li[k].className = 'even';
+        }
+        for (var j = 0; j < li.length - 1; j++) {
+            li[j].index = j;
+            li[j].onmouseover = function() {
+                if (!this.className) {
+                    for (var i = 0; i < li.length - 1; i++) {
+                        removeclass(li[i], 'hover')
+                    }
+                    add(this, 'hover')
+                } else {
+                    removeclass(this, 'even');
+                    add(this, 'hover')
+                }
+            }
+            li[j].onmouseout = function() {
+                if (this.index % 2 == 0) {
+                    add(this, 'even');
+                } else {
+                    this.className = ''
+                }
+            }
+            input[j].onclick = function() {
+                if (cmy) {
+                    cmy = false;
+                    for (var b = 0; b < input.length - 1; b++) {
+                        if (this.checked) {
+                            removeclass(this.parentNode, 'even');
+                            add(li[b], 'hover');
+                        } else {
+                            if (b % 2 == 0) {
+                                removeclass(li[b], 'even');
+                            } else {
+                                li[b].className = '';
+                            }
+                        }
+                    }
+                }
+                cmy = true;
+            }
+        }
+    }
+</script>
+
+<body>
+    <ul>
+        <li><input type="checkbox"><span>映山红</span><a>程梦雅</a></li>
+        <li><input type="checkbox"><span>北京北京</span><a>冯绍峰</a></li>
+        <li><input type="checkbox"><span>喜欢你</span><a>木子</a></li>
+        <li><input type="checkbox"><span>我要你</span><a>孙皓梦</a></li>
+        <li><input type="checkbox"><span>献给我的室友</span><a>MDZZ</a></li>
+        <li><input type="checkbox"><span>明天你要嫁人啦</span><a>王雅静</a></li>
+        <li><input type="checkbox"><span>全选</span><button>收藏</button><button>添加</button><button>删除</button></li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var arr = [8, 4, 9, 3, 5]
+        // var emp = null;
+        // for (var i = 0; i < arr.length; i++) {
+        //     for (var j = i + 1; j < arr.length; j++) {
+        //         if (arr[i] > arr[j]) { //如果第一个值大于第二个值，需要将第二个值和第一个值换位置
+        //             emp = arr[i]; //换位置，将第一个的值空出来，所以把arr[i]给了空，腾出位置
+        //             arr[i] = arr[j]; //把第二个值换给第一个
+        //             arr[j] = emp //把刚才换给空的第一个值换给arr[j]
+        //         }
+        //     }
+        // }
+        // console.log(arr)
+
+        function text(arr) {
+            var emp = null;
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = i + 1; j < arr.length; j++) {
+                    if (arr[i] > arr[j]) {
+                        emp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = emp;
+                    }
+                }
+            }
+            return arr
+        }
+        var arrs = [8, 4, 9, 3, 5]
+        console.log(text(arrs));
+    </script>
+</body>
+
+</html>

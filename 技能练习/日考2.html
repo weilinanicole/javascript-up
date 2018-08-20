@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // function getDate(year, month) {
+        //     return new Date(year, month, 0).getDate();
+        // }
+
+        // 1、能整除4且不能整除100的为闰年，2、能整除400的是闰年
+        function getDate(year, month) {
+            if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+                return 31;
+            } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+                return 30;
+            } else if (month == 2) {
+                if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+                    return 29;
+                } else {
+                    return 28;
+                }
+            }
+        }
+
+        for (var i = 1; i <= 12; i++) {
+            console.log(i, getDate(2017, i));
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

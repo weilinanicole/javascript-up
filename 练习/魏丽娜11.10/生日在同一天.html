@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //小明今年18岁，生日为11月11日，假设他能活100岁，求哪年的生日在周六
+        var arr = [];
+        for (var i = 0; i <= 100 - 18; i++) {
+            if (new Date(2017 + i, 10, 19).getDay() === 6) {
+                arr.push(2017 + i)
+            }
+        }
+        console.log(arr)
+    </script>
+</body>
+
+</html>

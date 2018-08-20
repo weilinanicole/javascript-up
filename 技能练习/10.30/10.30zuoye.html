@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //在页面创建一个空的p标签，然后声明一个变量var msg="这是我学JS第一个拼接的字符串",然后把msg中的内容输出到p标签中.
+
+        //定义一个变量 var name="你的名字" age="你的年龄"
+        //sex="你的性别" class="你的班级名" 然后在页面中输出 我的名字叫做+name   换行
+        //我的年龄是+age 换行 我的性别是+sex 换行 我所在的班级是+class;
+
+
+
+        //声明几个变量用于存储以下信息：
+        //我是admin，我设置的密码是admin_pwd，我18岁了，地址暂时不详。
+        //其中:admin显示为粗体，admin_pwd显示为斜体。
+    </script>
+</head>
+
+<body>
+    <p id="op">
+
+    </p>
+    <b id="str"> </b>
+    <em id="sta"> </em>
+    <script>
+        var msg = "这是我学JS第一个拼接的字符串";
+        var p = document.getElementById("op");
+        p.innerHTML = msg;
+
+
+        var userName = "张三",
+            ages = 3,
+            sex = '男',
+            className = "1601N";
+        document.write("我的名字叫做" + userName + "，<br>我的年龄是" + ages + ",<br>我的性别是" + sex + ",<br>我所在的班级是" + className);
+
+
+
+        var str = "admin",
+            sta = "admin_pwd";
+        var b = document.getElementById("str");
+        b.innerHTML = str;
+        var em = document.getElementById("sta");
+        em.innerHTML = sta;
+
+
+
+        var msg="这是我学JS第一个拼接的字符串";
+        var p=document.getElementById("op");
+        p.innerHTML=msg;
+
+
+
+        var name="张三",
+            age=3,
+            sex="男",
+            class_1="1601N";
+        document.write("我的名字是"+name+",<br>我的年龄是"+age+",<br>我的性别是"+sex+",<br>我所在的班级是"+class_1);
+    </script>
+</body>
+
+</html>

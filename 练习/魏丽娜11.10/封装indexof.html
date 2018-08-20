@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //封装indexOf
+        //  题干：判断一个已知元素在数组中的位置，这个元素如果出现多次，
+        //  返回哪个索引
+        //  1 遍历数组，如果当前元素和给定值相等就返回当前循环变量，
+        //  2 如果不等就接着去比较数组的下一个元素直到循环结束
+        function getIndexOf(arr, val) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] === val) {
+                    console.log(i)
+                }
+            }
+        }
+        var arrs = [1, 2, 3, 4, 5, 6, 7];
+        getIndexOf(arrs, 1);
+    </script>
+</body>
+
+</html>

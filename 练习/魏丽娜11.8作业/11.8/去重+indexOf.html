@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //indexOf封装的
+        //两个参数（数组，要查找的值）
+        function getIndexOf(arry, val) {
+            for (var i = 0; i < arry.length; i++) {
+                if (arry[i] === val) {
+                    return i; //相当于console.log(i);但是函数有返回值，为return i
+                }
+            }
+            return -1;
+        }
+        //去重
+        //调用已封装的函数，要将它的调用，格式为 调用名（）
+        //此题中，调用getIndexOf(新数组，要查找的值)
+        function text(arrs) {
+            var b = [];
+            for (var i = 0; i < arrs.length; i++) {
+                if (getIndexOf(b, arrs[i]) === -1) { //查找b数组中是否有arrs[i]
+                    b.push(arrs[i])
+                }
+            }
+            return b
+        }
+        var arr = [1, 2, 3, 3, 2, 1]
+        console.log(text(arr));
+    </script>
+</body>
+
+</html>

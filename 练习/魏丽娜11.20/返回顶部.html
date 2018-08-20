@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box p {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            text-align: center;
+            line-height: 80px;
+            color: #fff;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='box' style='height:3000px;'>
+        <p>返回顶部</p>
+
+    </div>
+    <script>
+        var oBox = document.getElementById('box');
+        var oP = document.getElementsByTagName('p')[0];
+        var timer = null;
+        window.onscroll = function() {
+            var H = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(H);
+            if (H > 500) {
+                oP.style.display = 'block';
+            } else {
+                oP.style.display = 'none';
+            }
+        }
+        oP.onclick = function() {
+            timer = setInterval(function() {
+                var H = document.documentElement.scrollTop || document.body.scrollTop;
+                H -= 50;
+                document.documentElement.scrollTop = document.body.scrollTop = H;
+                if (H <= 0) {
+                    clearInterval(timer);
+                }
+            }, 50)
+        }
+    </script>
+</body>
+
+</html>

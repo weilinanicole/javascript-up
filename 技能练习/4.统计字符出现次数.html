@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //已知有字符串str="acdkjcdeicl"，编写方法统计str中字母c出现了多少次，
+        //使用函数编写，字符串和要统计的字母作为参数传递。strCount(str,”c”) 使用 两种方法
+        function test(str, val) {
+            var num = 0;
+            for (var i = 0; i < str.length; i++) {
+                if (str.charAt(i) === 'c') {
+                    num++;
+                }
+            }
+            return num;
+        }
+        var str = 'acdkjcdeicl';
+        console.log(test(str, 'c'));
+
+
+
+
+        function text(strs, vals) {
+            var a = str.split('c');
+            var b = a.length;
+            return b
+        }
+        var strs = 'acdkjcdeicl';
+        console.log(test(strs, 'c'));
+    </script>
+</body>
+
+</html>

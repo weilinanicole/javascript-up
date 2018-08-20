@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id='list'>
+        <li><input type="text" value=""></li>
+    </ul>
+    <button id='btn'>添加</button>
+    <script>
+        var oUl = document.getElementById('list');
+        var aLi = oUl.getElementsByTagName('li');
+        var oBtn = document.getElementById('btn');
+        var num = 0;
+        oBtn.onclick = function() {
+            var aLi1 = document.createElement('li');
+            var aInput1 = document.createElement('input');
+            var aBtn1 = document.createElement('button');
+            aInput1.type = 'text';
+            aBtn1.innerHTML = '删除';
+            aLi1.appendChild(aInput1);
+            aLi1.appendChild(aBtn1);
+            aBtn1.onclick = function() {
+                var parent = this.parentNode; //li
+                parent.parentNode.removeChild(parent);
+                num--;
+            }
+            oUl.appendChild(aLi1); //将Li添加到OUl中
+            num++;
+            if (num >= 5) {
+                oBtn.style.display = 'none';
+            } else if (num < 5) {
+                oBtn.style.display = 'block';
+            }
+
+        }
+    </script>
+</body>
+
+</html>

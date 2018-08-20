@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #list {
+            margin: 10px auto;
+            text-align: center;
+        }
+        
+        #list span {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+        
+        .red {
+            background: red;
+        }
+        
+        .blue {
+            background: blue;
+        }
+        
+        div {
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <li id='list'>
+        <span class='red'></span>
+        <span class='red'></span>
+        <span class='red'></span>
+        <span class='red'></span>
+        <span class='red'></span>
+        <span class='blue'></span>
+        <span class='blue'></span>
+    </li>
+    <div>
+        <button id='btn'>随机一注</button>
+        <button id='clear'>清空</button>
+    </div>
+    <script>
+        var oLi = document.getElementById('list');
+        var aRed = document.getElementsByClassName('red');
+        var aBlue = document.getElementsByClassName('blue');
+        var oBtn1 = document.getElementById('btn');
+        var oBtn2 = document.getElementById('clear');
+        //console.log(oLi.children.length);
+        var onoff = true;
+        //随机函数
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        //设置小球内的随机数
+        function getNumber(min, max, len) {
+            var arr = [];
+            for (var i = 0; i < len;) {
+                var m = getRandom(min, max);
+                if (arr.indexOf(m) === -1) {
+                    arr.push(m);
+                    i++;
+                }
+            }
+            return arr;
+        }
+        //点随机按钮，小球内数组开始滚动，并在一定时间内停止
+        oBtn1.onclick = function() {
+                if (onoff) {
+                    onoff = false;
+                    var timer = setInterval(function() {
+                        var redColor = getNumber(1, 33, 5);
+                        for (var i = 0; i < aRed.length; i++) {
+                            aRed[i].innerHTML = redColor[i]
+                        }
+                        var blueColor = getNumber(1, 11, 2);
+                        for (var i = 0; i < aBlue.length; i++) {
+                            aBlue[i].innerHTML = blueColor[i]
+                        }
+                    }, 500);
+                    setTimeout(function() {
+                        clearInterval(timer);
+                        onoff = true;
+                    }, 2000);
+                }
+            }
+            //点击清空，小球内的内容清空
+        oBtn2.onclick = function() {
+            var s = oLi.children;
+
+            for (var i = 0; i < s.length; i++) {
+                s[i].innerHTML = '';
+                //console.log(oLi.children)
+            }
+        }
+    </script>
+</body>
+
+</html>

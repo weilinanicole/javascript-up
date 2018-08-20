@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <div id='cont'>
+
+    </div>
+    <button id='btn'>开</button>
+
+    <script>
+        var oCont=document.getElementById('cont');
+        var oBtn=document.getElementById('btn');
+        var arr=['<img src="images/1.png" alt="">','<img src="images/2.png" alt="">'];
+        oCont.innerHTML='<img src="images/1.png" alt="">';
+        oBtn.onclick=function(){
+            if(oBtn.innerHTML==='开'){
+                oCont.innerHTML='<img src="images/2.png" alt="">'
+                oBtn.innerHTML='关'
+            }
+        }
+    </script>
+</body>
+</html>

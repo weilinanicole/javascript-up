@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //10-100之间找10个不重复的数，存入一个数组，并排序
+        function text(a, b) {
+
+            var arr = [];
+            for (; arr.length < 10;) {
+                var m = Math.floor(Math.random() * (b - a + 1) + a);
+                if (arr.indexOf(m) === -1) {
+                    arr.push(m)
+                }
+            }
+            arr.sort(function(a, b) {
+                return a - b
+            });
+            return arr
+        }
+        text(10, 100);
+        console.log(text(10, 100))
+    </script>
+</body>
+
+</html>

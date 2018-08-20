@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //封装函数，实现数组的indexOf方法，该方法接收两个参数：数组和要查找的值。如果找到了，返回下标，找不到返回-1
+        function getIndexOf(arr, val) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] === val) {
+                    return i
+                }
+            }
+            return -1
+        }
+        var arrs = ['a', 'b', 'd']
+        console.log(getIndexOf(arrs, 'd'))
+    </script>
+</body>
+
+</html>

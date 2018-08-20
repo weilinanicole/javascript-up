@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <button id='btn'>开</button>
+    <div id='cont'></div>
+    <script>
+    var arr=['<img src="开关灯/1.png">','<img src="开关灯/2.png">']
+    var oBtn=document.getElementById('btn');
+    var oCont=document.getElementById('cont');
+    oCont.innerHTML='<img src="'+arr[0]+'">';
+    oBtn.onclick=function(){
+        if(oBtn.innerHTML==='开'){
+           oImg.innerHTML='<img src="'+arr[0]+'">';
+            oBtn.innerHtml='关'
+        }
+
+    }
+    </script>
+</body>
+</html>

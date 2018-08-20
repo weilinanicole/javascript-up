@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ppp {
+            background: #ccc;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .mar {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id='box'>
+
+    </div>
+    <li id='btn'>
+        <button id='btn1'>开始点名</button>
+        <button id='btn2'>停止</button>
+        <button id='btn3'>清空</button>
+    </li>
+    <script>
+        var boxs = document.getElementById('box');
+        boxs.className = 'ppp';
+        var btn = document.getElementById('btn');
+        btn.style.listStyle = 'none';
+        var mes = btn.getElementsByTagName('button');
+        var btnStart = document.getElementById('btn1');
+        var btnStop = document.getElementById('btn2');
+        var btnTime = document.getElementById('btn3');
+        for (var i = 0; i < mes.length; i++) {
+            mes[i].className = 'mar';
+        }
+        var arr = ['tiger', 'elephont', 'pig', 'dog'];
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        btn.onclick = setInterval(function() {
+            var m = getRandom(0, arr.length - 1);
+            boxs.innerHTML = arr[m];
+        }, 1000);
+    </script>
+</body>
+
+</html>

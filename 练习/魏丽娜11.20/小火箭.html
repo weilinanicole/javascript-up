@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='box' style='height:3000px'>
+        <img src="img/hot.png" id="img">
+    </div>
+    <script>
+        var box = document.getElementById('box');
+        var img = document.getElementById('img');
+        var timer = null;
+        window.onscroll = function() {
+            var scroll = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(scroll);
+            if (scroll >= 500) {
+                img.style.display = 'block';
+            } else {
+                img.style.display = 'none';
+            }
+        }
+        img.onclick = function() {
+                timer = setInterval(function() {
+                    var scroll = document.documentElement.scrollTop || document.body.scrollTop;
+                    //高度一次减50
+                    scroll -= 50;
+                    //将新值赋给原来的
+                    document.documentElement.scrollTop = document.body.scrollTop = scroll;
+                    //如果没有清除，下次再拉会自执行往上
+                    if (scroll <= 0) {
+                        clearInterval(timer);
+                    }
+                }, 50)
+            }
+            //获取样式
+            //ie:元素.currentStyle.样式
+            //标准:getComputedStyle(元素).样式
+            //元素.clientWidth 可视宽度
+            //元素.offsetWidth 占位宽度
+            //页面可视宽度:document.documentElement.clientWidth;
+            //滚动条:document.documentElement.scrollTop 火狐
+            //滚动条:document.body.scrollTop 谷歌
+            //window.on
+    </script>
+</body>
+
+</html>

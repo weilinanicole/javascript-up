@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id='op'></h1>
+    <script>
+        var op = document.getElementById('op');
+
+        function time() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var week = date.getDay();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            var ms = date.getMilliseconds();
+            var weeks = ["日", "一", "二", "三", "四", "五", "六"]
+            op.innerHTML = year + '年' + month + '月' + day + '日星期' + weeks[week - 1] + '   ' + h + '点' + miao(m) + '分' + ms + '秒'
+        }
+
+        setInterval(time, 1000);
+
+        function miao(n) {
+            if (n < 10) {
+                return '0' + n;
+            } else {
+                return '' + n;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 把所有淘宝替换成双11巨惠
+        var str = 'admin淘宝...帅哥...淘宝...妹子';
+
+        // 方法一
+        // console.log(str.split('淘宝').join('双11巨惠'));
+
+        // 方法二
+        var i = str.indexOf('淘宝');
+        while (i !== -1) {
+            str = str.replace('淘宝', '双11巨惠');
+            i = str.indexOf('淘宝');
+        }
+        console.log(str);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

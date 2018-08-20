@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #box {
+            width: 200px;
+            height: 120px;
+            position: relative;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        
+        #list {
+            width: 600px;
+            height: 120px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        #list li {
+            float: left;
+        }
+        
+        #list li img {
+            width: 200px;
+            height: 120px;
+            display: block;
+        }
+        
+        span {
+            width: 30px;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            position: absolute;
+            top: 50px;
+        }
+        
+        #left {
+            left: 0;
+        }
+        
+        #right {
+            right: 0;
+        }
+        
+        p {
+            width: 100%;
+            text-align: center;
+            height: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+        }
+        
+        p em {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            display: inline-block;
+        }
+        
+        .now {
+            background: red;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var oBox = document.getElementById('box');
+            var oUl = document.getElementById('list');
+            var aLi = document.getElementsByTagName('li');
+            var btn = document.getElementsByTagName('span');
+            var aEm = document.getElementsByTagName('em');
+            var num = 0;
+            var timer = null;
+
+            function auto() {
+                num++;
+                if (num >= 3) {
+                    num = 0;
+                }
+                for (var i = 0; i < aEm.length; i++) {
+                    aEm[i].className = '';
+                }
+                aEm[num].className = 'now';
+                oUl.style.left = -num * 200 + 'px';
+            }
+            //一开始就执行
+            timer = setInterval(auto, 1000);
+            //鼠标划上
+            oBox.onmouseover = function() {
+                    clearInterval(timer)
+                }
+                //鼠标划离
+            oBox.onmouseout = function() {
+                    timer = setInterval(auto, 1000);
+                }
+                //左按钮点击
+
+            btn[0].onclick = function() {
+                    num--;
+                    if (num < 0) {
+                        num = aLi.length - 1;
+                    }
+                    for (var i = 0; i < aEm.length; i++) {
+                        aEm[i].className = '';
+                    }
+                    aEm[num].className = 'now';
+                    oUl.style.left = -num * 200 + 'px';
+                }
+                //右按钮点击
+            btn[1].onclick = function() {
+                    auto();
+                }
+                //点击小球
+            for (var i = 0; i < aEm.length; i++) {
+                aEm[i].index = i;
+                aEm[i].onclick = function() {
+                    num = this.index;
+                    for (var i = 0; i < aEm.length; i++) {
+                        aEm[i].className = '';
+                    }
+                    aEm[num].className = 'now';
+                    oUl.style.left = -num * 200 + 'px';
+                }
+            }
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id='box'>
+        <ul id='list'>
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+        </ul>
+        <span id='left'><</span>
+        <span id='right'>></span>
+        <p>
+            <em class='now'></em>
+            <em></em>
+            <em></em>
+        </p>
+</body>
+
+</html>

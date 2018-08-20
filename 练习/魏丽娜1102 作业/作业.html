@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //分别使用for和while实现计算机1-100之间所有5的倍数的和。
+        // var num = 0;
+        // for (var i = 1; i <= 100; i++) {
+        //     if (i % 5 == 0) {
+        //         num += i;
+        //     }
+        // }
+        // console.log(num);
+        // var num = 0,
+        //     i = 1;
+        // while (i <= 100) {
+        //     if (i % 5 == 0) {
+        //         num += i
+        //     }
+        //     i++
+        // }
+        // console.log(num);
+
+
+        //在页面中打印出来图案： 要求第一行的 * 以红色显示， 第二行的 * 以绿色显示， 第三行的 * 以黄色显示， 第四行的以蓝色显示。
+        // for (var i = 1; i <= 5; i++) {
+        //     for (var j = 1; j <= i; j++) {
+        //         switch (i) {
+        //             case 1:
+        //                 document.write('<i style=color:red> * </i>');
+        //                 break;
+        //             case 2:
+        //                 document.write('<i style=color:green> * </i>');
+        //                 break;
+        //             case 3:
+        //                 document.write('<i style=color:yellow> * </i>');
+        //                 break;
+        //             case 4:
+        //                 document.write('<i style=color:blue> * </i>');
+        //                 break;
+        //         }
+        //     }
+        //     document.write('<br>');
+
+
+
+        // switch (i) {
+        //     case 1:
+        //         document.write('<p style=background:red>*</p>');
+        //         break;
+        //     case 2:
+        //         document.write('<p style=background:green>*</p>');
+        //         break;
+        //     case 3:
+        //         document.write('<p style=background:yellow>*</p>');
+        //         break;
+        //     case 4:
+        //         document.write('<p style=background:blue>*</p>');
+        //         break;
+        // }
+
+
+
+        //在页面中输出0-100之间的所有数；
+        //   0，5，10，15......100显示为红色；
+        //   1，6，11，16......96显示为绿色；
+        //   2，7，12，17......97显示为蓝色；
+        //   3，8，13，18......98显示为橙色；
+        //   4，9，14，19......99显示为黄色；
+        // for (var i = 0; i <= 100; i++) {
+        //     switch (i % 5) {
+        //         case 0:
+        //             document.write('<p style=color:red>' + i + '</p>');
+        //             break;
+        //         case 1:
+        //             document.write('<p style=color:green>' + i + '</p>');
+        //             break;
+        //         case 2:
+        //             document.write('<p style=color:blue>' + i + '</p>');
+        //             break;
+        //         case 3:
+        //             document.write('<p style=color:orange>' + i + '</p>');
+        //             break;
+        //         case 4:
+        //             document.write('<p style=color:yellow>' + i + '</p>');
+        //             break;
+        //     }
+        // }
+
+        //使用for循环打印1-100之间所有除30、60和90之外的5的倍数。
+        // for (var i = 5; i <= 100; i += 5) {
+        //     if (i !== 30 && i !== 60 && i !== 90) {
+        //         document.write(i)
+        //     }
+        // }
+        //在页面中输出1-6号标题。
+        //标题必须使用HTML标签。如：输出1号标题，结构为“<h1>1号标题</h1>”。
+        // for (var i = 1; i <= 6; i++) {
+        //     switch (i) {
+        //         case 1:
+        //             document.write('<h1> ' + i + ' 号标题 </h1>');
+        //             break;
+        //         case 2:
+        //             document.write('<h2> ' + i + ' 号标题 </h2>');
+        //             break;
+        //         case 3:
+        //             document.write('<h3> ' + i + ' 号标题 </h3>');
+        //             break;
+        //         case 4:
+        //             document.write('<h4> ' + i + ' 号标题 </h4>');
+        //             break;
+        //         case 5:
+        //             document.write('<h5> ' + i + ' 号标题 </h5>');
+        //             break;
+        //         case 6:
+        //             document.write('<h6> ' + i + ' 号标题 </h6>');
+        //             break;
+        //     }
+        // }
+        //计算1-100之间所有5的倍数的和。
+        // var num = 0;
+        // for (var i = 5; i <= 100; i += 5) {
+        //     num += i;
+        // }
+        // document.write(num);
+        //输出从2000(min) 年（ 含） 到3000年(max)（ 含） 间的所有闰年到页面， 要求每10个数就执行换行。
+        //说明： 闰年就是能被4整除且不能被100整除的年， 或者能被400整除的年。
+        var num = 0;
+        num += year;
+        for (var year = 2000; year <= 3000; year++) {
+            if (year % 4 == 0 && year / 100 != 0) {
+                document.write(year);
+                num++;
+            } else if (year / 4 == 0) {
+                document.write(year);
+                num++
+            }
+            if (num / 10 == 0) {
+                document.write('<br>')
+            }
+
+        }
+        //求100-999之间所有水仙花数。153 = 1*1*1 + 5*5*5 + 3*3*3这样的数就是水仙花数。
+        // for (var a = 1; a <= 9; a++)
+        //     for (var b = 1; b <= 9; b++)
+        //         for (var c = 1; c <= 9; c++)
+        //             for (var i = 100; i <= 999; i++) {
+        //                 if (i = a + b + c) {
+        //                     if (i == a * a * a + b * b * b + c * c * c) {
+        //                         document.write(i)
+        //                     }
+        //                 }
+        //                 document.write('<br>')
+        //             }
+    </script>
+</body>
+
+</html>

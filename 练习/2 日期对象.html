@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="oH"></h1>
+
+    <script>
+        var oH = document.getElementById('oH');
+
+        function test() {
+            var date = new Date(); // 对象，获取的是电脑的系统时间
+            var year = date.getFullYear(); // 年
+            var month = date.getMonth() + 1; // 月 0--11（1--12月）
+            var day = date.getDate(); // 日
+            var week = date.getDay(); // 星期 0--6(日一二三四五六)
+            var h = date.getHours(); // 小时 0--23
+            var m = date.getMinutes(); // 分钟 0--59
+            var s = date.getSeconds(); // 秒 0--59
+            var ms = date.getMilliseconds(); // 毫秒 0--999
+
+            var str = '日一二三四五六';
+
+            // 给oH内容
+            oH.innerHTML = year + '年' + month + '月' + day + '日 星期' + str[week] + ' ' + toTwo(h) + ':' + toTwo(m) + ':' + toTwo(s);
+        }
+
+        setInterval(test, 1000); // 一秒钟执行一次test函数
+
+        // 补0
+        function toTwo(n) {
+            if (n < 10) {
+                return '0' + n;
+            } else {
+                return '' + n;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,418 @@
+假设list是获取到的dom对象，将list的内容设置为它原来的内容加显示为粗体的“已加载...”： 
+   正确答案：C
+A  list.innerHTML = "<b>已加载...</b>";
+
+B  list.innerHTML += "已加载...";
+
+C  list.innerHTML += "<b>已加载...</b>";
+
+D  list.innerHTML = "已加载...";
+
+2、<div class='item'id='box'></div>执行document.getElementById('box').className = 'active';执行之后的dom结果是：
+   正确答案：B
+A  <div class="item active" id="box"></div>
+
+B  <div class="active" id="box"></div>
+
+C  <div class="active item" id="box"></div>
+
+D  <div id="box"></div>
+
+3、<div id='count'>1</div>;var num = 99,count = document.getElementById('count').innerHTML;document.body.innerHTML = num+count;
+页面上的显示结果是：D
+   正确答案：
+A  199
+
+B  100
+
+C  NaN
+
+D  991
+
+4、以下哪个方法不是document对象的：D
+   正确答案：
+A  getElementById()
+
+B  getElementsByTagName()
+
+C  write()
+
+D  alert()
+
+5、<span id='title'>welcome to <em>beijing</em></span>console.log(document.getElementById('title').innerHTML)的打印结果是：
+   正确答案：A
+A  welcome to <em>beijing</em>
+
+B  <em>beijing</em>
+
+C  welcome to
+
+D  welcome to beijing
+
+6、javaScript中（    ）变量的作用范围是在方法内有效：
+   正确答案：A
+A  局部变量
+
+B  全局变量
+
+C  以上都不对
+
+D  环境变量
+
+7、javaScript中（    ）变量可以被看作是window对象的属性：
+   正确答案：C
+A  局部变量
+
+B  环境变量
+
+C  全局变量
+
+D  以上都不对
+
+8、window.（    ）是用来关闭窗口的：
+   正确答案：B
+A  confirm
+
+B  close
+
+C  alert
+
+D  open
+
+9、function hi(){
+var a;
+alert(a);
+}hi();弹出结果是（    ）：
+   正确答案：C
+A  程序报错
+
+B  以上都不对
+
+C  undefined
+
+D  null
+
+10、关于setTimeout('check',10)中说法正确的是（    ）：
+   正确答案：C
+A  check函数每10毫秒执行一次
+
+B  程序循环执行10次
+
+C   check函数在10毫秒之后被执行
+
+D  10作为参数传递给check
+
+11、    function inArray(val,arr){
+          for(var i=0,len=arr.length;i&lt;len;i++){
+             if(val===arr[i]){
+                 return (   ) 
+             }
+          }
+          return -1;
+      }
+      var pos = inArray('5',[1,8,5,9,6]);
+      console.log(pos);以上检测值在数组中出现的位置的代码，括号中应填写的代码是（   ）,最终的打印结果是（    ）：
+   正确答案：B
+A  arr[i],0
+
+B  i,-1
+
+C  val,-1
+
+D  arr[i],-1
+
+12、关于setTimeout('check',10)中说法正确的是（    ）：
+   正确答案：B
+A  程序循环执行10次
+
+B   check函数在10毫秒之后被执行
+
+C  check函数每10毫秒执行一次
+
+D  10作为参数传递给check
+
+13、var a=[0];
+if(a[0]){
+   console.log(a==true);
+}else{
+   console.log('wut');
+}以上代码的打印结果是（     ）：
+   正确答案：D
+A  1
+
+B  以上代码都不对
+
+C  0
+
+D  wut
+
+14、假如今天是周一，var time = new Date().getTime(),tempDate = new Date();
+tempDate.setTime(time+86400*2000);console.log(tempDate.getDay());的打印结果是（   ）;：
+   正确答案：A
+A  3
+
+B  26
+
+C  28
+
+D  1
+
+15、var email = ‘marry@sohu.com&’,
+           pos = email.indexOf(’@’),
+           host = email.substring(pos,10);
+           console.log(host);打印结果是（    ）：
+   正确答案：D
+A  sohu
+
+B  @sohu.
+
+C  sohu.
+
+D  @sohu
+
+16、var x = 10
+       function setNum(){
+           var x = 20;
+           setTimeout(function(){
+               alert(x);
+           },100);
+           x = 50;
+       }
+       setNum();弹出结果是（    ）：
+   正确答案：B
+A  20
+
+B  50
+
+C  以上都不对
+
+D  10
+
+17、var date=new Date(2016,13,25,0,0,0);
+console.log(date.getFullYear()+','+date.getMonth())的返回结果是（   ）;：
+   正确答案：B
+A  2016,1
+
+B  2017,1
+
+C  2016,13
+
+D  2017,0
+
+18、<div id='list'>hello <b>world</b></div>console.log(document.getElementById('list').firstChild.nodeType);（    ）：
+   正确答案：C
+A  1
+
+B  9
+
+C  3
+
+D  元素节点
+
+19、var str = 'abcd';
+console.log(str.split('').reverse().join());打印结果是（    ）：
+   正确答案：C
+A  ["dcba"]
+
+B  dcba
+
+C  d,c,b,a
+
+D  a,b,c,d
+
+20、<div id='btn'>机选</div>
+var btn=document.getElementById('btn');
+btn.onclick=check;
+function check(){
+ console.log(this)
+}打印结果是（    ）：C
+   正确答案：
+A  以上都不对
+
+B  window
+
+C  <div id="btn">机选</div>
+
+D  btn
+
+21、function getParams(url){
+          var params = url.split('&');
+      } 
+      console.log(getParams('city_id=99&city_name=北京'));实现打印结果是['city_id=99', 'city_name=北京']，则以上代码共有几处错误（     ） ：
+   正确答案：B
+A  2
+
+B  1
+
+C  3
+
+D  0
+
+多选题：
+
+1、以下哪些是DOM对象的属性：
+						 
+ 正确答案：ACD
+A style
+
+B css
+
+C innerHTML
+
+D className
+
+2、以下document的方法，哪些返回结果是数组：
+						 
+ 正确答案：ABD
+A getElementsByClassName()
+
+B querySelector()
+
+C getElementById()
+
+D getElementsByTagName()
+
+3、假设user是获取到的文本框，失去焦点时，调用checkVal这样一个函数，且将文本框的值作为参数传递，以下实现方法正确的有哪些（   ）：
+						 
+ 正确答案：BC
+A user.onblur = checkVal(this.value)
+
+B user.onblur = function(){checkVal(user.value)}
+
+C user.onblur = function(){checkVal(this.value)}
+
+D user.onblur = checkVal(user.value)
+
+4、假设btn是获取到的按钮，点击按钮调用checkCity这样一个函数，以下写法正确的有哪些（    ）：
+						 
+ 正确答案:DB????
+A btn.onclick = function(){checkCity;}
+
+B btn.onclick = function(){checkCity();}
+
+C btn.onclick = checkCity()
+
+D btn.onclick = checkCity;
+
+5、以下哪些属于键盘事件（     ）：ACD
+						 
+ 正确答案：
+A onkeypress
+
+B onmouseup
+
+C onkeyup
+
+D onkeydown
+
+6、以下语句语法正确的有（     ）：AC
+						 
+ 正确答案：
+A document.getElementsByTagName("div")[0].innerHTML = '<b>hello</b>';
+
+B document.getElementById("box").style.border-top="1px solid #f00"
+
+C  document.getElementsByTagName("body")[0].innerHTML = "HELLO"
+
+D document.getElementsByTagName("body").style.paddingTop = "10px";
+
+7、创建一个包含hello的节点div添加到body中，需要经历哪些步骤（   ）：
+						 
+ 正确答案：ABD
+A document.appendChild(div);
+
+B div.innerHTML = "hello";
+
+C document.createTextNode("hello");
+
+D var div = document.createElement("div")
+
+8、 function getAttr(url,async){
+          async = typeof(async) === ’undefined’？true:async;
+          console.log(async);
+      }
+      getAttr(’http://localhot/live.php’,false);打印结果是（     ）：
+						 
+ 正确答案：D
+A undefined
+
+B 1
+
+C 以上都不对
+
+D 0
+
+9、以下DOM方法中哪些方法是用于添加节点的（    ）：
+						 
+ 正确答案：BD 
+A document.createElement()
+
+B appendChild()
+
+C document.createTextNode()
+
+D insertBefore()
+
+判断题：
+
+1、某个键盘的键被按下时触发的事件是onkeyup事件：：
+ 正确答案:错
+√
+
+×
+
+2、btn.onclick=function(){
+alert('hello world');
+}，实现消除btn上的事件的写法是btn.onclick = null;：：
+ 正确答案：对
+√
+
+×
+
+3、btn.onclick = sayHi();这个语句实现的是当点击btn时，调用sayHi这个函数。：：
+ 正确答案：错
+√
+
+×
+
+4、keyCode属性是event对象的属性值：：
+ 正确答案：对
+√
+
+×
+
+5、btnObj.onclick()只是简单地调用了btnObj的onclick所指向的方法，只是调用方法而已，并未触发事件：：
+ 正确答案：对
+√
+
+×
+
+6、location.href只能用于跳转页面，不能用于获取路径：：
+ 正确答案：错
+√
+
+×
+
+7、new Date()无参数时是用于创建日期对象：：
+ 正确答案：对
+√
+
+×
+
+8、var btn = document.getElementById(’btn’);点击按钮时调用changeImg这个函数的正确写法是btn.onclick = changeImg();：：
+ 正确答案：错
+√
+
+×
+
+9、超时调用是setInterval(),间歇调用是setTimeout()：：
+ 正确答案：错
+√
+
+×
+
+10、document.createElement()只能用于创建元素节点，document.createTextNode()只能用于创建文本节点。：：
+ 正确答案：对
+√
+
+×

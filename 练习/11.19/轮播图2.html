@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        #box {
+            width: 500px;
+            height: 205px;
+            overflow: hidden;
+            position: relative;
+            margin: 10px auto;
+        }
+        
+        #list {
+            width: 1500px;
+            height: 205px;
+            position: absolute;
+        }
+        
+        #list li {
+            float: left;
+        }
+        
+        #list li img {
+            width: 500px;
+            height: 205px;
+            display: block;
+        }
+        
+        #box span {
+            width: 40px;
+            height: 100px;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+            top: 50px;
+        }
+        
+        #btnLeft {
+            left: 0;
+        }
+        
+        #btnRight {
+            right: 0;
+        }
+        
+        #circle {
+            width: 100%;
+            height: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            text-align: center;
+        }
+        
+        #circle em {
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        #circle em.reds {
+            background: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id='box'>
+        <ul id='list'>
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+        </ul>
+        <span id='btnLeft'><</span>
+        <span id='btnRight'>></span>
+        <li id='circle'>
+            <em class='reds'></em>
+            <em></em>
+            <em></em>
+        </li>
+    </div>
+    <script>
+        var oBox = document.getElementById('box');
+        var oUl = document.getElementById('list');
+        var obtnLeft = document.getElementById('btnLeft');
+        var obtnRight = document.getElementById('btnRight');
+        var aLi = oUl.getElementsByTagName('li');
+        var aCircle = document.getElementById('circle');
+        var aEm = aCircle.getElementsByTagName('em');
+        var num = 0;
+        var timer = null;
+
+        function auto() {
+            num++;
+            if (num >= aLi.length) {
+                num = 0;
+            }
+            oUl.style.left = -num * 500 + 'px';
+        }
+        timer = setInterval(auto, 500);
+        //滑上停止
+        oBox.onmouseover = function() {
+                clearInterval(timer);
+            }
+            //滑离继续
+        oBox.onmouseout = function() {
+                timer = setInterval(auto, 500);
+            }
+            //点击按钮
+        obtnLeft.onclick = function() {
+            num--;
+            if (num < 0) {
+                num = aLi.length - 1;
+            }
+            oUl.style.left = -num * 500 + 'px';
+        }
+        obtnRight.onclick = function() {
+                auto();
+            }
+            //点击小球
+        for (var i = 0; i < aEm.length; i++) {
+            aEm[i].index = i;
+            aEm[i].onclick = function() {
+                num = this.index;
+                oUl.style.left = -num * 500 + 'px';
+            }
+        }
+    </script>
+</body>
+
+</html>

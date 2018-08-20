@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var oUl = document.getElementById('list');
+            var aLi = oUl.children; // 获取li
+            var oP = document.getElementsByTagName('p')[0]; // 获取p标签
+            var aB = oUl.getElementsByTagName('b'); // 所有的件数标签
+            var aStrong = oUl.getElementsByTagName('strong'); // 所有的小计标签
+            var all = document.getElementById('all'); // 全选
+            var aInput = oUl.getElementsByTagName('input'); // 单个复选框
+
+            for (var i = 0; i < aLi.length; i++) {
+                auto(aLi[i]);
+            }
+
+            function auto(obj) {
+                var aBtn = obj.getElementsByTagName('button'); // 按钮
+                var oB = obj.getElementsByTagName('b')[0]; // 件数
+                var count = oB.innerHTML; // 件数值
+                var oEm = obj.getElementsByTagName('em')[0]; // 单价
+                var num = oEm.innerHTML; // 单价值
+                var oStrong = obj.getElementsByTagName('strong')[0]; // 小计
+
+                // 减
+                aBtn[0].onclick = function() {
+                    count--;
+                    if (count < 0) {
+                        count = 0;
+                        return;
+                    }
+                    fn();
+                };
+
+                // 加
+                aBtn[1].onclick = function() {
+                    count++;
+                    fn();
+                }
+
+                function fn() {
+                    oStrong.innerHTML = count * num;
+                    oB.innerHTML = count;
+                    con();
+                }
+            }
+
+            // 总价钱和总件数计算
+            function con() {
+                var num1 = 0;
+                var num2 = 0;
+                for (var i = 0; i < aB.length; i++) {
+                    // 如果该件商品是选中，则计算在总价里
+                    if (aInput[i].checked) {
+                        num1 += aB[i].innerHTML * 1;
+                        num2 += aStrong[i].innerHTML * 1;
+                    }
+                }
+                oP.innerHTML = '商品合计共：' + num1 + '件，共花费了：' + num2 + '元';
+            }
+
+            // 全选
+            all.onclick = function() {
+                for (var i = 0; i < aInput.length; i++) {
+                    aInput[i].checked = this.checked;
+                }
+                con();
+            }
+
+            // 单选
+            for (var i = 0; i < aInput.length; i++) {
+                aInput[i].onclick = function() {
+                    var count = 0;
+                    for (var i = 0; i < aInput.length; i++) {
+                        if (aInput[i].checked) {
+                            count++;
+                        }
+                    }
+                    if (count === aInput.length) {
+                        all.checked = true;
+                    } else {
+                        all.checked = false;
+                    }
+                    // all.checked = count === aInput.length;
+
+                    con();
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="list">
+        <li>
+            <input type="checkbox">
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>12.5</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+        <li>
+            <input type="checkbox">
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>10</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+        <li>
+            <input type="checkbox">
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>16.5</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+        <li>
+            <input type="checkbox">
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>9.5</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+    </ul>
+
+    <input type="checkbox" id="all">全选
+    <p>商品合计共：0件，共花费了：0元</p>
+</body>
+
+</html>

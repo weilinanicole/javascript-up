@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //封装函数，实现模拟数组的indexOf方法
+        function test(arr, val) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] === val) {
+                    return i
+                }
+            }
+            return -1
+        }
+        var arrs = [4, 7, 9, 8, 6, 3, 5];
+        console.log(test(arrs, 3));
+    </script>
+</body>
+
+</html>

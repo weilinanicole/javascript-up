@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #up {
+            width: 100px;
+            height: 50px;
+            background: #f00;
+            line-height: 50px;
+            text-align: center;
+            color: #fff;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+            var oUp = document.getElementById('up');
+            var timer = null;
+
+            // 滚动事件
+            window.onscroll = function() {
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                if (scrollTop >= 200) {
+                    oUp.style.display = 'block';
+                } else {
+                    oUp.style.display = 'none';
+                }
+            }
+
+            oUp.onclick = function() {
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+                timer = setInterval(function() {
+                    scrollTop -= 80;
+                    document.documentElement.scrollTop = document.body.scrollTop = scrollTop;
+                    if (scrollTop <= 0) {
+                        clearInterval(timer);
+                    }
+                }, 10);
+
+            }
+        }
+    </script>
+</head>
+
+<body style="height: 3000px;">
+    <div id="up">返回顶部</div>
+</body>
+
+</html>

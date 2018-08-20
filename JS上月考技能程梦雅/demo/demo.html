@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>月考测试</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <h2 class="tit" id="tit">
+            <b>已选条件：</b>
+            <section id="selection">
+                <!-- 注释掉的结构是选中后添加到标题中的标签结构，此处需要动态创建  -->
+                <!-- <span>全部suv <a href="javascript:;" class="close">X</a></span> -->
+            </section>
+            <em>清除全部</em>
+        </h2>
+        <ul class="item" id="item">
+            <li><b>级别：</b><i>全部</i><span>微型车</span><span>小型车</span><span>紧凑型车</span><span>中型车</span><span>中大型车</span><span>大型车</span><span>全部SUV</span><span>MPV</span><span>跑车</span><span>皮卡</span><span>微面</span><span>轻客</span></li>
+            <li><b>价格：</b><i>全部</i><span class="active">10万以下</span><span>10-15万</span><span>15-20万</span><span>20-25万</span><span>25-30万</span><span>30-50万</span><span>50万以下</span></li>
+            <li><b>排量：</b><i>全部</i><span>1.0L及以下</span><span>1.1-1.6L</span><span>1.7-2.0L</span><span>2.7-3.6L</span><span>4.1-5.6L</span><span>5.0L以上</span></li>
+            <li><b>燃料：</b><i>全部</i><span>汽油</span><span>柴油</span><span>油电混合</span><span>纯电动</span><span>插电式混合</span></li>
+            <li><b>国别：</b><i>全部</i><span>中国</span><span>德国</span><span>美国</span><span>日本</span><span>韩国</span><span>其它</span></li>
+            <li><b>价位：</b><i>全部</i><span>5座</span><span>7座</span><span>其它</span></li>
+        </ul>
+        <!-- 点击展开更多显示全部需要更改item的高度为auto来实现，收起时将item的高度恢复为50px -->
+        <span class="btn">展开更多</span>
+    </div>
+    <script>
+        var btn = document.getElementsByClassName('btn')[0];
+        var item = document.getElementById('item');
+        var btnNum = 0; //记录点击btn次数   点击“点击收起”按钮，显示为“收起效果图”中所示，点击“展开更多”按钮，显示为“展开效果图”中所示。
+        btn.onclick = function() {
+                btnNum++;
+                if (btnNum % 2 == 1) {
+                    item.style.height = 'auto';
+                    btn.innerHTML = '点击收起'
+                } else {
+                    item.style.height = '50px';
+                    btn.innerHTML = '展开更多'
+                }
+            }
+            //（1）、“展开效果图”所示为默认状态，用户在“级别”、“价格”、“排量”等中选择哪一个选项，都要按顺序添加到“已选条件”中。一个选项组中只能选择一个，选中的选项显示为蓝色背景白色文字。
+        var liAll = document.getElementsByTagName('li');
+        for (var i = 0; i < liAll.length; i++) {
+            spanClick(i);
+            liAll[i].index = i;
+
+        }
+        //（2）、在“已选条件”一栏中，鼠标滑过已选条件时，“×”号显示为橙色背景，可查看“收起效果图”。
+
+        //（3）、点击“×”号删除当前所选条件，同时下面筛选一栏当前选中项显示为“全部”
+        //点击“清除全部”删除所有已选条件，每一个筛选栏目中当前选中选项显示为“全部”。
+        var em = document.getElementsByTagName('em')[0];
+        em.onclick = function() {
+            var sele = document.getElementById('selection');
+            for (var a = 0; a < liAll.length; a++) {
+                var sum = liAll[a].children;
+                for (var b = 0; b < sum.length; b++) {
+                    sum[b].className = '';
+                    sum[1].className = 'active'
+                }
+                var Sp = sele.getElementsByTagName('span');
+                for (var s = 0; s < Sp.length; s++) {
+                    sele.removeChild(Sp[s]);
+                }
+            }
+
+        }
+
+        function spanClick(b) {
+            var num = 0;
+            var sec = document.getElementById("selection");
+            var li = document.getElementsByTagName('li')[b];
+            var span = li.getElementsByTagName('span');
+            for (var j = 0; j < span.length; j++) {
+                span.index = j;
+                span[j].onclick = function() {
+                    num++;
+                    if (num > 1) {
+                        return;
+                    }
+                    for (var k = 0; k < span.length; k++) {
+                        span[k].className = '';
+                    }
+                    this.className = 'active';
+                    var spanAll = document.createElement('span');
+                    var spanA = document.createElement('a');
+                    spanAll.innerHTML = this.innerHTML;
+                    spanAll.appendChild(spanA);
+                    spanA.innerHTML = 'X';
+                    spanA.href = 'javascript:;'
+                    sec.appendChild(spanAll);
+                    var sele = document.getElementById('selection');
+                    var spanClick = sele.getElementsByTagName('span');
+                    for (var l = 0; l < spanClick.length; l++) {
+                        spanClick[l].onmouseover = function() {
+                            for (var l = 0; l < spanClick.length; l++) {
+                                spanClick[l].getElementsByTagName('a')[0] = '';
+                            }
+                            this.getElementsByTagName('a')[0].className = 'close';
+                            console.log(this)
+                        }
+
+                    }
+                    spanA.onclick = function() {
+                        par = this.parentNode;
+                        par.parentNode.removeChild(par);
+                        for (var i = 0; i < liAll.length; i++) {
+                            if (liAll[i].index == li.index) {
+                                var truee = liAll[i]
+                                for (var e = 0; e < span.length; e++) {
+                                    var spantr = truee.getElementsByTagName('span')[e];
+                                    if (spantr.innerHTML == par.firstChild.nodeValue) {
+                                        for (var t = 0; t < spantr.parentNode.children.length; t++) {
+                                            spantr.parentNode.children[t].className = '';
+                                        }
+                                        spantr.parentNode.children[1].className = 'active';
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

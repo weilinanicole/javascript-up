@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ppp {
+            background: red;
+            font-size: 30px;
+            font-weight: bold;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <button id="btn">选组长</button>
+
+    <script>
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        var arr = ['郭明辉', '娄力飒', '曹龙腾', '张晓雪', '马俊娟'];
+
+        var oUl = document.getElementById('list');
+        var aLi = oUl.getElementsByTagName('li');
+        var oBtn = document.getElementById('btn');
+
+        // 给li添加内容 
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].innerHTML = '<p>' + arr[i] + '</p>';
+        }
+
+        // 选组长
+        oBtn.onclick = function() {
+            // 让所有的li背景为白
+            for (var i = 0; i < aLi.length; i++) {
+                // aLi[i].style.background = '';
+                aLi[i].className = '';
+            }
+
+            // 让某一个li的背景变红
+            var n = getRandom(0, aLi.length - 1); // 随机循环一个下标
+            // aLi[n].style.background = 'red';
+            aLi[n].className = 'ppp';
+        }
+    </script>
+</body>
+
+</html>

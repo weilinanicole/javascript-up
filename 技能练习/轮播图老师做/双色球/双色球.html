@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            text-align: center;
+        }
+        
+        #box {
+            text-align: center;
+            margin: 50px;
+        }
+        
+        #box span {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            line-height: 80px;
+            font-size: 30px;
+            color: #fff;
+        }
+        
+        #box span.red {
+            background: red;
+        }
+        
+        #box span.blue {
+            background: blue;
+        }
+    </style>
+    <script src="js/base.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <span class="red"></span>
+        <span class="red"></span>
+        <span class="red"></span>
+        <span class="red"></span>
+        <span class="red"></span>
+        <span class="blue"></span>
+        <span class="blue"></span>
+    </div>
+    <p>
+        <input type="button" value="机选一注" id="btn1" />
+        <input type="button" value="清空" id="btn2" />
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>
+            请输入用户名：<input type="text" id="user" />
+            <input type="button" value='添加' id="btn" />
+            <span id="clert">X</span>
+        </p>
+        <ul id="list">
+            <li>marry</li>
+            <li>lili</li>
+            <li>my_admin</li>
+            <li>Jack_66</li>
+        </ul>
+    </div>
+    <script>
+        var userName = document.getElementById('user');
+        var btn = document.getElementById('btn');
+        var clert = document.getElementById('clert');
+        var oUl = document.getElementById('list');
+        var aLi = oUl.getElementsByTagName('li');
+        // 检测用户输入的用户名，如果用户名在ul列表中出现过，则提示用户：“您输入的用户名已经存在”，
+        //否则将用户输入的用户名添加到ul中，
+        btn.onclick = function() {
+            for (var i = 0; i < aLi.length; i++) {
+                if (userName.value === aLi[i].innerHTML) {
+                    alert('您输入的用户名已经存在');
+                    return;
+                }
+            }
+            var lis = document.createElement('li');
+            lis.innerHTML = userName.value;
+            oUl.appendChild(lis);
+            var aSpan = document.createElement('span');
+            aSpan.innerHTML = 'x';
+            lis.appendChild(aSpan);
+            userName.value = '';
+            //添加的DOM结构为：“<li>用户输入的用户名<span>X</span></li>”。
+            //点击“X”号弹出确认框，提示用户：“您确定要删除吗？”点击确定则删除该节点。
+            aSpan.onclick = function() {
+                var cont = confirm('您确定要删除吗');
+                if (cont) {
+                    var parent = aSpan.parentNode;
+                    console.log(parent);
+                    parent.remove(this);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

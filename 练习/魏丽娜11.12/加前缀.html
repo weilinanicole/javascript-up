@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 对brower做出如下判断， 根据不同的浏览器添加不同的前缀， 添加后放到fullProperty中如：
+        // brower是ie, 则给prefix添加 - ms - 的前缀， 即fullProperty的值为 - ms - transform;
+        // brower是chrome, 则给prefix添加 - webkit - 的前缀
+        // brower是firefox, 则给prefix添加 - moz - 的前缀
+        // brower是opear, 则给prefix添加 - o - 的前缀
+        // 如果都不是， 则告诉用户：“ 您的浏览器支持property的值”
+        // 最后打印输出fullProperty。
+        var brower = prompt('请输入浏览器'),
+            property = "transform",
+            fullProperty = "";
+        switch (brower) {
+            case 'ie':
+                fullProperty = '-ms-' + property;
+                break;
+        }
+        console.log(fullProperty);
+    </script>
+</body>
+
+</html>

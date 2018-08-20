@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //作业4
+        // var str = 'abcdefghk',
+        //     newstr = '';
+        // for (i = str.length - 1; i >= 0; i--) {
+        //     console.log(str[i]);
+        // }
+
+
+
+        //在页面中输出1号-6号标题。标题必须使用HTML标签，
+        //如输出1号标题，结构应为“<h1>1号标题</h1>”
+        // for (var i = 1; i <= 6; i++) {
+        //     document.write('<h' + i + '>' + i + '号标题</h' + i + '>')
+        // }
+
+
+
+        // varbrower = "ie", property = "transform", fullProperty = "";
+        // 对brower做出如下判断， 根据不同的浏览器添加不同的前缀， 添加后放到fullProperty中如：
+        // brower是ie, 则给prefix添加 - ms - 的前缀， 即fullProperty的值为 - ms - transform;
+        // brower是chrome, 则给prefix添加 - webkit - 的前缀
+        // brower是firefox, 则给prefix添加 - moz - 的前缀
+        // brower是opear, 则给prefix添加 - o - 的前缀
+        // 如果都不是， 则告诉用户：“ 您的浏览器支持property的值”
+        // 最后打印输出fullProperty。
+        // var brower = prompt('请输入浏览器'),
+        //     fullProperty;
+        // property = 'transform';
+        // if (brower === 'ie') {
+        //     fullProperty = '-ms-' + property;
+        // } else if (brower === 'chrome') {
+        //     fullProperty = '-webkit-' + property;
+        // } else if (brower === 'firefox') {
+        //     fullProperty = '-moz-' + property;
+        // } else if (brower === 'opear') {
+        //     fullProperty = '--' + property;
+        // } else {
+        //     alert('您的浏览器支持property的值')
+        // }
+        // alert(fullProperty);
+        //打印99乘法表（while实现一遍）
+        // for (var i = 1; i <= 9; i++) {
+        //     for (j = 1; j <= i; j++) {
+        //         document.write('' + j + '*' + i + '=' + j * i + '&nbsp;');
+        //     }
+        //     document.write('<br>')
+        // }
+        // var i = 1;
+        // while (i <= 9) {
+        //     var j = 1;
+        //     while (j <= i) {
+        //         document.write('' + j + '*' + i + '=' + j * i + '&nbsp;');
+        //         j++;
+        //     }
+        //     document.write('<br>')
+        //     i++;
+        // }
+
+
+        //Var str = ‘asdfeadfadsf;aj;fdkj’,求字符串中d出现了多少次
+        //var statement = "welcome to Bawei";请编写代码将statement 中的第二个单词取出来。
+        // var str = "welcome to Bawei";
+        // var m = str.substr(str.indexOf('t'), 2);
+        // var m = str.substring(str.indexOf('t'), 10);
+        // console.log(m);
+        // 说明：statement是welcome to Bawei时，取出to;statement是hello world时取出world;
+        // statement是I love You China时取出love；
+        // statement是Hello时，提示用户“此语句中不存在第二个单词哦~”
+        var str = prompt('请输入字符串');
+        switch (str) {
+            case ('welcome to Bawei'):
+                var i = str.split(' ');
+                console.log(i[1]);
+                break;
+            case ('I love You China'):
+                var i = str.split(' ', 2);
+                console.log(i[1]);
+                break;
+            case ('hello'):
+                alert('此语句中不存在第二个单词哦~');
+                break;
+        }
+    </script>
+</body>
+
+</html>

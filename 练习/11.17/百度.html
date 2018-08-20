@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body,
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        #songs {
+            border: 1px solid #eee;
+            width: 400px;
+            margin: 20px auto;
+            font-size: 14px;
+        }
+        
+        #list li {
+            height: 30px;
+            line-height: 30px;
+        }
+        
+        #toolbar {
+            border-top: 1px solid #DEDEDE;
+            border-bottom: 2px solid #424242;
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+        }
+        
+        #toolbar li {
+            float: left;
+            width: 100px;
+            text-align: left;
+        }
+        
+        #toolbar .button {
+            border: 1px solid #CECECE;
+            height: 20px;
+            margin: 6px 5px;
+            width: 60px;
+            line-height: 24px;
+            padding-left: 10px;
+            border-radius: 5px;
+            text-align: center;
+            opacity: 0.3;
+        }
+        
+        #list .title {
+            display: inline-block;
+            width: 280px;
+        }
+        
+        .gray {
+            background: #efefef;
+        }
+        
+        .blue {
+            background: #f7ffff;
+        }
+        
+        .white {
+            background: #fff;
+        }
+        
+        .color {
+            background: skyblue;
+        }
+        
+        .colors {
+            background: #fff;
+        }
+        
+        .over {
+            background: orange;
+        }
+        
+        .emp {
+            background: red;
+        }
+        
+        .gray {
+            background: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="songs">
+
+        <ul id="list">
+            <li>
+                <label><input type="checkbox"></label>
+                <span class="title">私奔</span>
+                <span class="singer">梁博</span>
+            </li>
+            <li>
+                <label><input type="checkbox"></label>
+                <span class="title">北京北京</span>
+                <span class="singer">梁博、黄勇</span>
+            </li>
+            <li>
+                <label><input type="checkbox"></label>
+                <span class="title">我爱你中国</span>
+                <span class="singer">梁博</span>
+            </li>
+            <li>
+                <label><input type="checkbox"></label>
+                <span class="title">花火</span>
+                <span class="singer">梁博</span>
+            </li>
+            <li>
+                <label><input type="checkbox"></label>
+                <span class="title">回来</span>
+                <span class="singer">梁博</span>
+            </li>
+            <li>
+                <label><input type="checkbox"></label>
+                <span class="title">爱要有你才完美</span>
+                <span class="singer">梁博、那英</span>
+            </li>
+        </ul>
+        <ul id="toolbar">
+            <li>
+                <label><input id="allCheched" type="checkbox"></label>全选
+            </li>
+            <li>
+                <div class="button" id="favorite">收藏</div>
+            </li>
+            <li>
+                <div class="button" id="add">添加</div>
+            </li>
+            <li>
+                <div class="button" id="delete">删除</div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var oSongs = document.getElementById('songs');
+        var aUl = oSongs = document.getElementsByTagName('ul');
+        var aLi = aUl[0].getElementsByTagName('li');
+        var aLis = aUl[1].getElementsByTagName('li')
+        var aInput = aUl[0].getElementsByTagName('label');
+        //隔行变色
+        for (var i = 0; i < aLi.length; i++) {
+            if (i % 2 == 0) {
+                aLi[i].className = 'color';
+            } else {
+                aLi[i].className = 'colors';
+            }
+            //鼠标划上改变颜色
+            aLi[i].onmouseover = function() {
+                    //aLi[i].index = i;
+                    this.className = 'over';
+                }
+                //鼠标滑离恢复颜色
+            aLi[i].onmouseout = function() {
+                for (var i = 0; i < aLi.length; i++) {
+                    if (i % 2 == 0) {
+                        aLi[i].className = 'color';
+                    } else {
+                        aLi[i].className = 'colors';
+                    }
+                }
+            }
+            aInput[i].onclick = function() {
+                for (var i = 0; i < aLi.length; i++) {
+                    // if (i % 2 == 0) {
+                    //     aInput[i].className = 'color';
+                    // } else {
+                    //     aInput[i].className = 'colors';
+                    // }
+                    this.onmouseover = function() {
+                        this.className = '';
+                    }
+                    this.parentNode.className = 'emp';
+                }
+            }
+            aLis[0].onclick = function() {
+                aLi.className = 'gray';
+
+            }
+        }
+    </script>
+</body>
+
+</html>

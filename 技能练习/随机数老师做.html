@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 单击按钮随机切换四位字母的验证码
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function getStr() {
+            var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var newStr = '';
+            for (var i = 0; i < 4; i++) {
+                var n = getRandom(0, str.length - 1);
+                newStr += str[n];
+            }
+            return newStr;
+        }
+
+
+        window.onload = function() {
+            var oSpan = document.getElementsByTagName('span')[0];
+            var oBtn = document.getElementsByTagName('button')[0];
+
+            oSpan.innerHTML = getStr();
+
+            // 点击按钮的时候，再做一件事
+            oBtn.onclick = function() {
+                oSpan.innerHTML = getStr();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <span></span>
+    <button>获取验证码</button>
+</body>
+
+</html>

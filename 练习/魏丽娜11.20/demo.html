@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #content li {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+        
+        #content li a {
+            margin-left: 10px;
+            text-decoration: none;
+            color: #2b2b2b;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="text" id="txt" />
+    <ul id="content">
+    </ul>
+    <script>
+        var oTxt = document.getElementById('txt');
+        var oContent = document.getElementById('content');
+        var count = 0;
+
+        // 失焦时干一件事
+        oTxt.onblur = function() {
+            var val = this.value;
+            var arr = [];
+            if (val.length === 1) {
+                // 输入一位时
+                arr.push(val);
+            } else if (val.indexOf(',') !== -1) {
+                // 有逗号
+                arr = val.split(',');
+            } else if (val.indexOf(' ') !== -1) {
+                // 有空格
+                arr = val.split(' ');
+            }
+
+            fn(arr);
+
+            oTxt.value = ''; // 清空已输入的内容
+        }
+
+        function fn(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                var num = arr[i];
+                if (!isNaN(num)) {
+                    // 控制个数
+                    if (count >= 5) {
+                        alert('已达到上限！');
+                        return false;
+                    }
+
+                    // 每创建一个计数一次
+                    count++;
+
+                    var li = document.createElement('li');
+                    li.innerHTML = '标签' + num;
+
+                    var oA = document.createElement('a');
+                    oA.href = 'javascript:;';
+                    oA.innerHTML = 'x';
+                    oA.onclick = function() {
+                        var parent = this.parentNode;
+                        parent.parentNode.removeChild(parent);
+                        count--;
+
+                        // 排序
+                        var aLi = oContent.children;
+                        for (var i = 0; i < aLi.length; i++) {
+                            aLi[i].firstChild.nodeValue = '标签' + (i + 1);
+                        }
+                    }
+
+                    li.appendChild(oA);
+                    oContent.appendChild(li);
+
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

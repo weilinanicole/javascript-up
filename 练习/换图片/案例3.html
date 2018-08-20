@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 50px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #list {
+            margin-top: 50px;
+        }
+        
+        #list li {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            float: left;
+            margin: 15px 0 0 15px;
+        }
+        
+        #list li img {
+            width: 120px;
+            height: 120px;
+        }
+        
+        #list li a {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            top: -10px;
+            background: #ccc;
+            border-radius: 50%;
+            line-height: 20px;
+            text-align: center;
+            color: #f00;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        var arr = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg', 'img/5.jpg', 'img/6.jpg', 'img/7.jpg', 'img/8.jpg'];
+
+        window.onload = function() {
+            var oTxt = document.getElementById('txt');
+            var oList = document.getElementById('list');
+
+            // 失去焦点
+            // oTxt.onblur = function() {
+            //     var val = oTxt.value;
+            //     console.log(val)
+            // }
+
+            // 回车触发这个事件
+            oTxt.onkeydown = function(ev) {
+                var ev = ev || event; // 兼容事件对象
+                if (ev.keyCode === 13) { // 如果是13，则证明按下的是回车键
+                    var val = oTxt.value.trim(); // 用来匹配数组里面的数据
+                    var arr = [];
+
+                    // 处理用户输入
+                    if (val.length === 1) {
+                        // 输入一个0到7之间的数
+                        arr.push(val);
+                    } else if (val.indexOf(',') !== -1) {
+                        // 以逗号分隔
+                        arr = val.split(',');
+                    } else if (val.indexOf(' ') !== -1) {
+                        // 以空格分隔
+                        arr = val.split(' ');
+                    }
+
+                    // 用户的输入处理完成之后，调用这个函数
+                    for (var i = 0; i < arr.length; i++) {
+                        fn(arr[i]);
+                    }
+                    this.value = '';
+                }
+            }
+
+            // 创建元素
+            function fn(num) {
+                if (num >= 0 && num <= 7) {
+                    // 创建标签
+                    var oLi = document.createElement('li'); // li
+
+                    var oImg = document.createElement('img'); // img
+                    oImg.src = arr[num];
+                    oLi.appendChild(oImg);
+
+                    var oA = document.createElement('a');
+                    oA.href = 'javascript:;';
+                    oA.innerHTML = 'x';
+                    oLi.appendChild(oA);
+                    // 删除
+                    oA.onclick = function() {
+                        var parent = this.parentNode;
+                        parent.parentNode.removeChild(parent);
+                    }
+
+                    oList.appendChild(oLi);
+                }
+            }
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="txt" />
+    <ul id="list">
+        <!-- <li>
+            <img src="img/1.jpg" alt="">
+            <a href="javascript:;">x</a>
+        </li> -->
+    </ul>
+</body>
+
+</html>

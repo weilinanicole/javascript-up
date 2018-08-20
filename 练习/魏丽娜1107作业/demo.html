@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //写一个函数，求任意数的平均值。
+        // function arrs() {
+        //     var num = 0;
+        //     var len = arguments.length
+        //     for (var i = 0; i < len; i++) {
+        //         num += arguments[i];
+        //     }
+        //     console.log(num / len)
+        // }
+        // arrs(1, 2, 3, 4, 5)
+
+
+        //封装一个随机获取 n - m 随机数的函数
+
+        // function arr(n, m) {
+        //     var s = Math.floor(Math.random() * (m - n + 1) + n);
+        //     return s
+        // }
+        // console.log(arr(1, 5))
+
+
+        //2)封装一个函数,实现字符串转驼峰大小写
+        // var a = 'welcome to beijing';
+        // var as = a.split(' ');
+
+        // function arr() {
+
+        //     for (var i = 0; i < arguments.length; i++) {
+        //         var m = arguments[i]
+        //         m.replace('arguments[i][0]', 'arguments[i][0].toUpperCase');
+        //         console.log(m)
+        //     }
+
+
+        // }
+        // console.log(arr(as))
+        // arr(as)
+
+
+        //封装一个函数 提取地址参数
+        //var url = "http://localhost/baidawu/html/hotel.html?cityId=28&date_in=2016-05-10 &
+        //date_out = 2016 - 05 - 25 & name = 如家连锁 ";如 ：returnValue(url,”cityId”)则返回28
+
+
+
+        //封装一个函数，实现数组的reverse()功能。
+        // function arr(b) {
+        //     var c = [];
+        //     for (var i = b.length - 1; i >= 0; i--) {
+        //         c.push(b[i])
+        //     }
+        //     return c
+        // }
+        // var a = ['1', '2', '3', '4', '5'];
+        // console.log(arr(a))
+
+        //封装一个函数，求任意多个数的平均值，
+        //如:传入5个参数，就求这5个数的平均值，传入8个，就求这8个数的平均数，最后将其返回。（40人）
+        // function arrs() {
+        //     var num = 0;
+        //     var len = arguments.length
+        //     for (var i = 0; i < len; i++) {
+        //         num += arguments[i];
+        //     }
+        //     console.log(num / len)
+        // }
+        // arrs(1, 2, 3, 4, 5)
+
+
+        //3、var arr = [1,'lili','kitty',5,'jack',6,9];将arr这个数组中所有的数字提取出来存入一个新的数组，
+        //并对其进行升序排列
+        var arr = [1, 'lili', 'kitty', 5, 'jack', 6, 9];
+
+        function add(a) {
+            var b = [];
+            for (var i = 0; i < a.length; i++) {
+                if (!isNaN(a[i])) {
+                    b.push(a[i])
+                }
+            }
+            return b
+        }
+        console.log(add(arr))
+    </script>
+</body>
+
+</html>

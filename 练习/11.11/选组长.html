@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <ul id='uls'>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <button>选组长</button>
+    <script>
+
+        var oUl=document.getElementById('uls');
+        var aLi=oUl.getElementsByTagName('li');
+        var names=['tiger','elephont','monkey','pig','cat']
+        for(var i=0;i<names.length;i++){
+            aLi[i].innerHTML=names[i]
+        }
+
+    </script>
+</body>
+</html>

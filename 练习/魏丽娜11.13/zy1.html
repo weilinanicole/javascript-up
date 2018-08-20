@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ppp {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            background: #ccc;
+            text-align: center;
+            font-size: 50px;
+            color: red;
+            line-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id='divs'></div>
+    <button id='btn1'>开始点名</button>
+    <button id='btn2'>停止</button>
+    <button id='btn3'>清空</button>
+    <script>
+        //1.点击开始点名时，屏幕滚动出现名字
+        //2.3秒后自动停止
+        //3.点击停止按钮时，也可以停止。
+        //4.点击清空时，将内容清空
+        //5.注意考虑重复开启定时器问题。
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        var div = document.getElementById('divs');
+        var oBtn1 = document.getElementById('btn1');
+        var oBtn2 = document.getElementById('btn2');
+        var oBtn3 = document.getElementById('btn3');
+
+        function getstr() {
+            var arr = ['张晓雪', '曲兴凯', '周丽', '张杨瑞', '程梦雅', '魏丽娜'];
+            var str = [];
+            for (var i = 0; i < 1; i++) {
+                var n = getRandom(0, arr.length - 1);
+                str.push(arr[n]);
+            }
+            return str;
+        }
+        div.className = 'ppp';
+        var timer = null;
+        oBtn1.onclick = function() {
+            var timer = setInterval(function() {
+                div.innerHTML = getstr();
+            });
+            oBtn2.onclick = function() {
+                clearInterval(timer);
+            }
+            oBtn3.onclick = function() {
+                div.innerHTML = '';
+            }
+            setInterval(function() {
+                clearInterval(timer);
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

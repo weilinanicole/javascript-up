@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <span id='op'></span><button>获取验证码</button>
+    <script>
+        //单击按钮随机切换四位字母的验证码
+        document.getElementById('op');
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        function getNum(arr) {
+            var n = [];
+            for (var i = 0; i < 4; i++) {
+                var m = getRandom(0, arr.length - 1);
+                n.push(arr[m])
+            }
+            return n;
+        }
+        var arrs = 'qwertyuiopasdfghjklzxcvbnm';
+        document.write('<span>' + getNum(arrs) + '</span>');
+    </script>
+</body>
+
+</html>

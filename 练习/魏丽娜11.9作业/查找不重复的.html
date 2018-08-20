@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //查找不重复的值
+        function test(num) {
+            var b = [];
+            for (var i = 0; i < num.length; i++) {
+                if (num.indexOf(num[i]) === num.lastIndexOf(num[i])) {
+                    b.push(num[i]);
+                    console.log(b)
+                }
+            }
+            return b
+        }
+        var nums = [1, 2, 3, 4, 1, 2, 3];
+        test(nums);
+    </script>
+</body>
+
+</html>

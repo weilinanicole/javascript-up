@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id='oh' class='pzh box'></h1>
+    <script>
+        function hasClass(oHs, val) {
+            var classN = oHs.className;
+            var arr = classN.split(' ');
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == val) {
+                    return i;
+                }
+            }
+            return -1;
+            //放在for循环的外面的意思是循环完毕后还没有就返回false
+            //如果放在循环里面的话，class名放在第二个就会返回false，但其实是有的。所以要把return false防在外面
+        }
+        // var oH = document.getElementById('oh');
+        // console.log(hasClass(oH, 'box'))
+
+
+        function addClass(oHs, classname) {
+            var classn = oH.className;
+            if (!classn) {
+                oHs.className = classname;
+            } else if (hasClass(oHs, classname) == -1) {
+                oHs.className += ' ' + classname;
+            }
+        }
+        var oH = document.getElementById('oh')
+        console.log(addClass(oH, 'ppp'));
+    </script>
+</body>
+
+</html>

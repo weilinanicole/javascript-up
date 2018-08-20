@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //随机生成一个十六进制的颜色值，改变页面颜色
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+
+        function getColor(num) {
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                var n = getRandom(0, num.length - 1);
+                color += num[n];
+            }
+            return color
+        }
+        var num = '0123456789abcdef';
+        getColor(num);
+        for (var j = 0; j < 100; j++) {
+            document.write('<p style=background:' + getColor(num) + '>' + j + '</p>')
+        }
+    </script>
+</body>
+
+</html>

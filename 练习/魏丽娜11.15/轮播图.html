@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        
+        #banner {
+            width: 500px;
+            height: 205px;
+            overflow: hidden;
+            margin: 20px auto;
+            position: relative;
+        }
+        
+        #banner ul {
+            width: 1500px;
+            height: 205px;
+            position: absolute;
+            transition: 1s;
+        }
+        
+        #banner li {
+            float: left;
+        }
+        
+        #banner img {
+            width: 500px;
+            height: 205px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='banner'>
+        <ul>
+            <li><img src='images/1.jpg'></li>
+            <li><img src='images/2.jpg'></li>
+            <li><img src='images/3.jpg'></li>
+        </ul>
+    </div>
+    <script>
+        var oBanner = document.getElementById('banner');
+        var oUl = oBanner.getElementsByTagName('ul')[0];
+        var aLi = oBanner.getElementsByTagName('li');
+        var num = 0;
+        var timer = null;
+        setInterval(function() {
+            num++;
+            if (num >= aLi.length) {
+                num = 0
+            }
+            oUl.style.left = -num * 500 + 'px';
+        }, 1000)
+    </script>
+</body>
+
+</html>

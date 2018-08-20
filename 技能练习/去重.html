@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var nums = [1, 5, 9, 5, 3, 6, 1, 8, 9, 2, 7, 6];
+        // 将数组中重复的值只保留一个，且做升序排列，返回[1,2,3,5,6,7,8,9]
+
+        // var arr = []; // 存储去重以后的
+        // for (var i = 0; i < nums.length; i++) {
+        //     if (arr.indexOf(nums[i]) === -1) {
+        //         arr.push(nums[i]);
+        //     }
+        // }
+        // arr.sort(function(a, b) {
+        //     return a - b;
+        // })
+        // console.log(arr);
+
+
+
+
+
+        var arrs = ["a", "c", 6, "e", 5, 3, "d"];
+        // 将arrs中所有的数字乘以5，返回[30,25,15]
+        var arr = [];
+        for (var i = 0; i < arrs.length; i++) {
+            if (!isNaN(arrs[i])) {
+                arr.push(arrs[i] * 5);
+            }
+        }
+        console.log(arr);
+    </script>
+</body>
+
+</html>

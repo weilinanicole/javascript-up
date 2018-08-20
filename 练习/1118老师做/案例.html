@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        #imgList {
+            display: inline;
+        }
+        
+        #imgList img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            opacity: 0.5;
+        }
+        
+        #imgList img.active {
+            opacity: 1;
+        }
+        
+        textarea {
+            width: 580px;
+            height: 120px;
+        }
+        
+        #list img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userName">
+    <div id="imgList">
+        <img src="img/1.jpg">
+        <img src="img/2.jpg">
+        <img src="img/3.jpg">
+        <img src="img/4.jpg">
+        <img src="img/5.jpg">
+        <img src="img/6.jpg">
+        <img src="img/7.jpg">
+        <img src="img/8.jpg">
+    </div>
+    <br>
+    <textarea id="txt"></textarea>
+    <br>
+    <p>还能输入<em id="max">40</em>个字</p>
+    <input type="button" value="广播" id="btn" />
+
+    <ul id="list">
+        <!-- <li>
+            <img src="img/1.jpg">
+            <span>李四</span>
+            <time datetime="">7月17日</time>
+            <a href="javascript:;">删除</a>
+        </li> -->
+    </ul>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

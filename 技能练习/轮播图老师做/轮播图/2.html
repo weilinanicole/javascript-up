@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        #banner {
+            width: 500px;
+            height: 205px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        #banner ul {
+            width: 1500px;
+            height: 205px;
+            position: absolute;
+            left: 0;
+            transition: 0.3s;
+        }
+        
+        #banner li {
+            float: left;
+        }
+        
+        #banner img {
+            width: 500px;
+            height: 205px;
+            display: block;
+        }
+        
+        #banner p {
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            text-align: center;
+            bottom: 10px;
+        }
+        
+        #banner p span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        
+        #banner p span.active {
+            background-color: #f00;
+        }
+        
+        #banner .btn {
+            position: absolute;
+            width: 50px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.5);
+            top: 52px;
+            text-decoration: none;
+            font-size: 30px;
+            line-height: 100px;
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        #banner .left {
+            left: 0;
+        }
+        
+        #banner .right {
+            right: 0;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var oBanner = document.getElementById('banner'); // 获取这个大盒子
+            var oUl = oBanner.getElementsByTagName('ul')[0]; // 图片的ul
+            var aLi = oUl.getElementsByTagName('li'); // 每个图
+            var aSpan = oBanner.getElementsByTagName('span'); // 每个小球
+            var oLeft = oBanner.querySelector('.left'); // 左按钮
+            var oRight = oBanner.querySelector('.right'); // 右按钮
+            var num = 0; // 关键，先改num，改完之后，调运动函数
+            var timer = null; // 时间对象
+
+            // 一打开，就自动轮播
+            timer = setInterval(auto, 2000);
+
+            // 滑上停止
+            oBanner.onmouseover = function() {
+                clearInterval(timer);
+            }
+
+            // 滑离开启
+            oBanner.onmouseout = function() {
+                timer = setInterval(auto, 2000);
+            }
+
+            // 点击小圆球
+            for (var i = 0; i < aSpan.length; i++) {
+                aSpan[i].index = i; // 给小球赋一个自定义属性
+                aSpan[i].onclick = function() {
+                    num = this.index; // 让num等于这个自定义属性
+                    animate(); // 调用动画的函数
+                }
+            }
+
+            // 上一张
+            oLeft.onclick = function() {
+                num--;
+                if (num < 0) {
+                    num = aLi.length - 1;
+                }
+                animate();
+            }
+
+            // 下一张
+            oRight.onclick = function() {
+                auto();
+            }
+
+
+            // 自动播放
+            function auto() {
+                num++;
+                // 当加到最后一张，回到0
+                if (num >= aLi.length) {
+                    num = 0
+                }
+                animate();
+            }
+
+            // 动画的函数
+            function animate() {
+                // 让所有的span样式清空
+                for (var i = 0; i < aSpan.length; i++) {
+                    aSpan[i].className = '';
+                }
+                // 让当前的span添加样式
+                aSpan[num].className = 'active';
+                // 改变ul的left值
+                oUl.style.left = -num * 500 + 'px';
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="banner">
+        <ul>
+            <li><img src="img/1.jpg"></li>
+            <li><img src="img/2.jpg"></li>
+            <li><img src="img/3.jpg"></li>
+        </ul>
+        <p>
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+        </p>
+        <a href="javascript:;" class="btn left">&lt;</a>
+        <a href="javascript:;" class="btn right">&gt;</a>
+    </div>
+</body>
+
+</html>

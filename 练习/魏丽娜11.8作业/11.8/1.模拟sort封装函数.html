@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //封装函数，实现模拟数组的sort方法  sort按照从小到大的顺序排列
+        function text(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = i + 1; j < arr.length; j++) {
+                    var emp = null;
+                    if (arr[i] > arr[j]) {
+                        emp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = emp;
+                    }
+                }
+            }
+            return arr
+        }
+        var arrs = [6, 2, 5, 9, 3, 8];
+        console.log(text(arrs))
+    </script>
+</body>
+
+</html>

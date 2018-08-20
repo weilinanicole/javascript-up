@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var oUl = document.getElementById('list');
+            var aLi = oUl.getElementsByTagName('li');
+            var all = document.getElementById('all');
+            var aB = oUl.getElementsByTagName('b');
+            var aInput = oUl.getElementsByTagName('input');
+            // var aStrong = oUl.getElementsByTagName('strong');
+            var p = document.getElementsByTagName('p')[0];
+            for (var i = 0; i < aLi.length; i++) {
+                auto(i)
+            }
+
+            function auto(obj) {
+                var aLi = document.getElementsByTagName('li')[obj];
+                var oInput = aLi.getElementsByTagName('input')[0];
+                var aBtn = aLi.getElementsByTagName('button');
+                var oB = aLi.getElementsByTagName('b')[0];
+                var oEm = aLi.getElementsByTagName('em')[0];
+                var oStrong = aLi.getElementsByTagName('strong')[0];
+                var num = 0;
+                aBtn[1].onclick = function() {
+                    num++;
+                    oB.innerHTML = num;
+                    oStrong.innerHTML = num * oEm.innerHTML;
+                    nums()
+                }
+                aBtn[0].onclick = function() {
+                    num--;
+                    if (num < 0) {
+                        num = 0;
+                    }
+                    oB.innerHTML = num;
+                    oStrong.innerHTML = num * oEm.innerHTML;
+                }
+            }
+            //全选按钮选中，单选按钮跟着改变
+            all.onclick = function() {
+                    for (var i = 0; i < aInput.length; i++) {
+                        aInput[i].checked = this.checked;
+                        nums()
+                    }
+                }
+                //单选按钮选中全选中，全选按钮也选中
+            for (var i = 0; i < aInput.length; i++) {
+                aInput[i].onclick = function() {
+                    var count = 0;
+                    for (var i = 0; i < aInput.length; i++) {
+                        if (aInput[i].checked) {
+                            count++;
+                        }
+                    }
+                    if (count == aInput.length) {
+                        all.checked = true;
+                    } else {
+                        all.checked = false;
+                    }
+                }
+            }
+
+            function nums() {
+                for (var i = 0; i < aB.length; i++) {
+                    var num1 = 0;
+                    var num2 = 0;
+                    if (aInput[i].checked) {
+                        num1 += aB[i].innerHTML * 1;
+                        console.log(num1);
+                        num2 += aStrong[i].innerHTML * 1;
+                    }
+                }
+                p.innerHTML = '商品合计共：' + num1 + '件，共花费了：' + num2 + '元'
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <ul id='list'>
+        <li>
+            <input type="checkbox">
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>12.5</em>&nbsp;元&nbsp;&nbsp;小计:<strong>0</strong>元
+        </li>
+        <li>
+            <input type="checkbox">
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>10</em>&nbsp;元&nbsp;&nbsp;小计:<strong>0</strong>元
+        </li>
+        <li>
+            <input type="checkbox">
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>16.5</em>&nbsp;元&nbsp;&nbsp;小计:<strong>0</strong>元
+        </li>
+        <li>
+            <input type="checkbox">
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>9.5</em>&nbsp;元&nbsp;&nbsp;小计:<strong>0</strong>元
+        </li>
+    </ul>
+    全选：<input type="checkbox" id='all'>
+    <p>商品合计共：0件，共花费了：0元</p>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = 'amgafacfa';
+        str = str.split('');
+        str.sort();
+        var num = 0;
+        for (var i = 0; i < str.length; i++) {
+            if (str[i] === str[i + 1]) {
+                num++;
+                console.log(str[i])
+            }
+        }
+        console.log(num)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var oList = document.getElementById('list');
+            var oBtn = document.getElementById('btn');
+            var count = 0;
+
+            oBtn.onclick = function() {
+                var oLi = document.createElement('li'); // 创建的li
+
+                var oInput = document.createElement('input'); // 创建的input
+                oInput.type = 'text';
+                oInput.placeholder = '您去过的医院';
+                oLi.appendChild(oInput);
+
+                var oA = document.createElement('a');
+                oA.href = 'javascript:;';
+                oA.innerHTML = 'X';
+                oA.style.marginLeft = '20px';
+                oA.onclick = function() {
+                    var parent = this.parentNode;
+                    parent.parentNode.removeChild(parent);
+                    oBtn.style.display = 'block';
+                    count--;
+                }
+                oLi.appendChild(oA);
+
+                oList.appendChild(oLi);
+
+                // 当添加五条了之后，就隐藏按钮
+                count++; // 当添加一个元素进去了之后，count就加加
+                if (count >= 5) {
+                    this.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ol id="list">
+        <li><input type="text" placeholder="您去过的医院"></li>
+    </ol>
+    <input type="button" value="添加医院" id="btn" />
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li class='ppp'></li>
+        <li class='ppp pzh'></li>
+        <li></li>
+        <li class='ppp1'></li>
+    </ul>
+    <ul>
+        <li class='ppp'></li>
+        <li class='ppp pzh'></li>
+        <li></li>
+        <li class='ppp1'></li>
+    </ul>
+    <script>
+        function hasClass(oHs, val) {
+            var classN = oHs.className;
+            var arr = classN.split(' ');
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == val) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        var oUl = document.getElementsByTagName('ul')[1];
+        var oH = oUl.getElementsByTagName('*');
+
+        function getbyclassname(parent, val) {
+            var arr = [];
+            for (var i = 0; i < oH.length; i++) {
+                if (hasClass(oH[i], val) !== -1) {
+                    arr.push(oH[i]);
+                }
+            }
+            return arr;
+        }
+        console.log(getbyclassname(oH, 'ppp'))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li>
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>12.5</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+        <li>
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>10</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+        <li>
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>16.5</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+        <li>
+            <button>-</button>
+            <b>0</b>
+            <button>+</button> 单价：
+            <em>9.5</em> 元&nbsp;&nbsp; 小计：
+            <strong>0</strong> 元
+        </li>
+    </ul>
+    <p>商品共计0件，消费0元</p>
+    <script>
+        var oUl = document.getElementById('list');
+        var aLi = oUl.getElementsByTagName('li');
+        var p = document.getElementsByTagName('p')[0];
+        for (var i = 0; i < aLi.length; i++) {
+            auto(i);
+        }
+
+        function auto(obj) {
+            var aLi = oUl.children[obj];
+            var aBtn = aLi.getElementsByTagName('button');
+            var oB = aLi.getElementsByTagName('b')[0];
+            var aB = oUl.getElementsByTagName('b');
+            var oEm = aLi.getElementsByTagName('em')[0];
+            var oStrong = aLi.getElementsByTagName('strong')[0];
+            var aStrong = oUl.getElementsByTagName('strong');
+            var num = 0;
+            aBtn[1].onclick = function() {
+                num++;
+                oB.innerHTML = num;
+                oStrong.innerHTML = num * oEm.innerHTML;
+                total();
+            }
+            aBtn[0].onclick = function() {
+                num--;
+                if (num < 0) {
+                    num = 0;
+                }
+                oB.innerHTML = num;
+                oStrong.innerHTML = num * oEm.innerHTML;
+                total();
+            }
+
+            function total() {
+                var num1 = 0;
+                var num2 = 0;
+                for (var i = 0; i < aB.length; i++) {
+                    num1 += aB[i].innerHTML * 1;
+                    num2 += aStrong[i].innerHTML * 1;
+                    console.log(num2)
+                }
+                p.innerHTML = '商品共计' + num1 + '件，消费' + num2 + '元'
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id='oh' class='pzh box'></h1>
+    <script>
+        function hasClass(oHs, val) {
+            var classN = oHs.className;
+            var arr = classN.split(' ');
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == val) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        var oH = document.getElementById('oh');
+        console.log(hasClass(oH, 'box'))
+
+        function removeClass(arr, classname) {
+            var classEle = arr.className;
+            var value = hasClass(arr, classname);
+            if (value !== -1) { //value是下标
+                var m = classEle.split(' ');
+                m.splice(value, 1);
+                arr.className = m.join(' ');
+            }
+        }
+        var oH = document.getElementById('oh');
+        removeClass(oH, 'box');
+    </script>
+</body>
+
+</html>

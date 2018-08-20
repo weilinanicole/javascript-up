@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 1、输入查询单号
+        // 1）快递单号不能为空 
+        // 2）长度4-12之间
+        // 3）前4位必须是是数字
+        // 4）正确
+
+
+
+        var str = prompt('输入查询单号');
+        if (str === null || str.trim() === '') {
+            // 是否取消，是否输入的为空
+            alert('单号不能为空')
+        } else if (str.length < 4 || str.length > 12) {
+            // 长度是否在4--12
+            alert('长度必须在4到12位之间');
+        } else if (isNaN(str.substr(0, 4))) {
+            // 前四位是否是数字
+            alert('前4位必须是是数字');
+        } else {
+            alert('输入正确');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

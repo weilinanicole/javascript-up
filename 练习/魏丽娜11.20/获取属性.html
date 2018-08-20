@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p id='oP' style=width:100px;height:100px;background:red;>
+        肚子饿
+    </p>
+    <script>
+        // var oP = document.getElementById('oP');
+        // var s = oP.style.height;
+        // var m = getComputedStyle(oP).width;
+        // console.log(s);
+        //封装getComputedStyle
+        function getStyle(obj, attr) {
+            if (typeof(window.getComputedStyle) === 'function') {
+                return getComputedStyle(obj)[attr];
+            } else {
+                return obj.currentStyle[attr];
+            }
+        }
+    </script>
+</body>
+
+</html>

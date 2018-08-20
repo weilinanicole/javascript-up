@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p></p>
+    <script>
+        function getColor(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        var color = '#';
+
+        function test(arr) {
+            for (var i = 0; i < 6; i++) {
+                var n = getColor(0, arr.length - 1);
+                color += arr[n];
+            }
+            return color;
+        }
+        var arrs = '0123456789abcdef';
+        test(arrs);
+
+        for (var j = 0; j < 100; j++) {
+            document.write('<p style=background:' + test() + '>1</p>');
+        }
+        // var m = 'rgba()'
+
+        // function test() {
+        //     for (var i = 0; i <= 255; i++) {
+        //         var n = getColor(0, 255);
+
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
